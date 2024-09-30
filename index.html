@@ -1,298 +1,434 @@
-<!DOCTYPE html>
-<!-- Created by pdf2htmlEX (https://github.com/pdf2htmlEX/pdf2htmlEX) -->
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta charset="utf-8"/>
-<meta name="generator" content="pdf2htmlEX"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<style type="text/css">
-/*! 
- * Base CSS for pdf2htmlEX
- * Copyright 2012,2013 Lu Wang <coolwanglu@gmail.com> 
- * https://github.com/pdf2htmlEX/pdf2htmlEX/blob/master/share/LICENSE
- */#sidebar{position:absolute;top:0;left:0;bottom:0;width:250px;padding:0;margin:0;overflow:auto}#page-container{position:absolute;top:0;left:0;margin:0;padding:0;border:0}@media screen{#sidebar.opened+#page-container{left:250px}#page-container{bottom:0;right:0;overflow:auto}.loading-indicator{display:none}.loading-indicator.active{display:block;position:absolute;width:64px;height:64px;top:50%;left:50%;margin-top:-32px;margin-left:-32px}.loading-indicator img{position:absolute;top:0;left:0;bottom:0;right:0}}@media print{@page{margin:0}html{margin:0}body{margin:0;-webkit-print-color-adjust:exact}#sidebar{display:none}#page-container{width:auto;height:auto;overflow:visible;background-color:transparent}.d{display:none}}.pf{position:relative;background-color:white;overflow:hidden;margin:0;border:0}.pc{position:absolute;border:0;padding:0;margin:0;top:0;left:0;width:100%;height:100%;overflow:hidden;display:block;transform-origin:0 0;-ms-transform-origin:0 0;-webkit-transform-origin:0 0}.pc.opened{display:block}.bf{position:absolute;border:0;margin:0;top:0;bottom:0;width:100%;height:100%;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none;user-select:none}.bi{position:absolute;border:0;margin:0;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none;user-select:none}@media print{.pf{margin:0;box-shadow:none;page-break-after:always;page-break-inside:avoid}@-moz-document url-prefix(){.pf{overflow:visible;border:1px solid #fff}.pc{overflow:visible}}}.c{position:absolute;border:0;padding:0;margin:0;overflow:hidden;display:block}.t{position:absolute;white-space:pre;font-size:1px;transform-origin:0 100%;-ms-transform-origin:0 100%;-webkit-transform-origin:0 100%;unicode-bidi:bidi-override;-moz-font-feature-settings:"liga" 0}.t:after{content:''}.t:before{content:'';display:inline-block}.t span{position:relative;unicode-bidi:bidi-override}._{display:inline-block;color:transparent;z-index:-1}::selection{background:rgba(127,255,255,0.4)}::-moz-selection{background:rgba(127,255,255,0.4)}.pi{display:none}.d{position:absolute;transform-origin:0 100%;-ms-transform-origin:0 100%;-webkit-transform-origin:0 100%}.it{border:0;background-color:rgba(255,255,255,0.0)}.ir:hover{cursor:pointer}</style>
-<style type="text/css">
-/*! 
- * Fancy styles for pdf2htmlEX
- * Copyright 2012,2013 Lu Wang <coolwanglu@gmail.com> 
- * https://github.com/pdf2htmlEX/pdf2htmlEX/blob/master/share/LICENSE
- */@keyframes fadein{from{opacity:0}to{opacity:1}}@-webkit-keyframes fadein{from{opacity:0}to{opacity:1}}@keyframes swing{0{transform:rotate(0)}10%{transform:rotate(0)}90%{transform:rotate(720deg)}100%{transform:rotate(720deg)}}@-webkit-keyframes swing{0{-webkit-transform:rotate(0)}10%{-webkit-transform:rotate(0)}90%{-webkit-transform:rotate(720deg)}100%{-webkit-transform:rotate(720deg)}}@media screen{#sidebar{background-color:#2f3236;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjNDAzYzNmIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMNCA0Wk00IDBMMCA0WiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2U9IiMxZTI5MmQiPjwvcGF0aD4KPC9zdmc+")}#outline{font-family:Georgia,Times,"Times New Roman",serif;font-size:13px;margin:2em 1em}#outline ul{padding:0}#outline li{list-style-type:none;margin:1em 0}#outline li>ul{margin-left:1em}#outline a,#outline a:visited,#outline a:hover,#outline a:active{line-height:1.2;color:#e8e8e8;text-overflow:ellipsis;white-space:nowrap;text-decoration:none;display:block;overflow:hidden;outline:0}#outline a:hover{color:#0cf}#page-container{background-color:#9e9e9e;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjOWU5ZTllIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=");-webkit-transition:left 500ms;transition:left 500ms}.pf{margin:13px auto;box-shadow:1px 1px 3px 1px #333;border-collapse:separate}.pc.opened{-webkit-animation:fadein 100ms;animation:fadein 100ms}.loading-indicator.active{-webkit-animation:swing 1.5s ease-in-out .01s infinite alternate none;animation:swing 1.5s ease-in-out .01s infinite alternate none}.checked{background:no-repeat url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goQDSYgDiGofgAAAslJREFUOMvtlM9LFGEYx7/vvOPM6ywuuyPFihWFBUsdNnA6KLIh+QPx4KWExULdHQ/9A9EfUodYmATDYg/iRewQzklFWxcEBcGgEplDkDtI6sw4PzrIbrOuedBb9MALD7zv+3m+z4/3Bf7bZS2bzQIAcrmcMDExcTeXy10DAFVVAQDksgFUVZ1ljD3yfd+0LOuFpmnvVVW9GHhkZAQcxwkNDQ2FSCQyRMgJxnVdy7KstKZpn7nwha6urqqfTqfPBAJAuVymlNLXoigOhfd5nmeiKL5TVTV+lmIKwAOA7u5u6Lped2BsbOwjY6yf4zgQQkAIAcedaPR9H67r3uYBQFEUFItFtLe332lpaVkUBOHK3t5eRtf1DwAwODiIubk5DA8PM8bYW1EU+wEgCIJqsCAIQAiB7/u253k2BQDDMJBKpa4mEon5eDx+UxAESJL0uK2t7XosFlvSdf0QAEmlUnlRFJ9Waho2Qghc1/U9z3uWz+eX+Wr+lL6SZfleEAQIggA8z6OpqSknimIvYyybSCReMsZ6TislhCAIAti2Dc/zejVNWwCAavN8339j27YbTg0AGGM3WltbP4WhlRWq6Q/btrs1TVsYHx+vNgqKoqBUKn2NRqPFxsbGJzzP05puUlpt0ukyOI6z7zjOwNTU1OLo6CgmJyf/gA3DgKIoWF1d/cIY24/FYgOU0pp0z/Ityzo8Pj5OTk9PbwHA+vp6zWghDC+VSiuRSOQgGo32UErJ38CO42wdHR09LBQK3zKZDDY2NupmFmF4R0cHVlZWlmRZ/iVJUn9FeWWcCCE4ODjYtG27Z2Zm5juAOmgdGAB2d3cBADs7O8uSJN2SZfl+WKlpmpumaT6Yn58vn/fs6XmbhmHMNjc3tzDGFI7jYJrm5vb29sDa2trPC/9aiqJUy5pOp4f6+vqeJ5PJBAB0dnZe/t8NBajx/z37Df5OGX8d13xzAAAAAElFTkSuQmCC)}}</style>
-<style type="text/css">
-.ff0{font-family:sans-serif;visibility:hidden;}
-@font-face{font-family:ff1;src:url('data:application/font-woff;base64,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')format("woff");}.ff1{font-family:ff1;line-height:0.718000;font-style:normal;font-weight:normal;visibility:visible;}
-@font-face{font-family:ff2;src:url('data:application/font-woff;base64,d09GRgABAAAAAAysAA0AAAAAETAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAMkAAAABoAAAAc02wg70dERUYAAAx0AAAAHAAAAB4AJwAtT1MvMgAAAaAAAABBAAAAVlbkZUhjbWFwAAACZAAAAH8AAAFas3++F2dhc3AAAAxsAAAACAAAAAj//wADZ2x5ZgAAAzQAAAe6AAAKFHbA57JoZWFkAAABMAAAAC0AAAA2W26kd2hoZWEAAAFgAAAAIAAAACQGygPfaG10eAAAAeQAAAB+AAAAnGMIB8xsb2NhAAAC5AAAAFAAAABQMIQzBG1heHAAAAGAAAAAHgAAACAAbgAubmFtZQAACvAAAAEmAAACcAyy/d9wb3N0AAAMGAAAAFMAAABwAqIDH3icY2BkAIM/2rwC8fw2Xxm4mV+A+DWqGxoQ9P8LLKxMh4BcDgYmkCgAGlsKIwAAAHicY2BkYGA69P8CAwPzDwaG/+9ZWBmAIihAHQCQaQWveJxjYGRgYFBn0GZgZQABJiBmZACJOYD5DAAK/ACdAAB4nGNgZFrJ3MLAysDA1MW0h4GBoQdCMz5gMGRkAooycDEzwAAjAxIISHNNAVIKDFFMh/5fAKo8xGAAUwMA4/QK3wAAAHicY/zCAAaMvkBiAwMD0zQGPSAuA2IrIFYEYjUgtgRiMyhtDMSGTIcZWJhWMgQw3QOKvwXS9UCcDsTfGcyYmRgCGK2A7OdAXMIQwDwbiKWAWASotgVIiwPpVUC5IgYlpgoGPqZzDC5MzxgUmH8wSDGdBfKnA3EHgykADRMeIgAAeJxjYGBgZoBgGQZGBhAIAfIYwXwWBgsgzcXAwcAEhAoMlgyeDFH//wPFFBgMGBwZvP/////4/5X/Z/+fgeqFAkY2BrgAIxOQYGJABYwQK5EBCysbOwcnFzcPL1SAj19AUEhYRFSMQVxCUkpaRlZOXkFRSVlFVY1hKAAAy/0Q+wAAAAAmACYAJgAmAEYAWgCEAMAA3gEQAUYBWgGaAdAB6AImAlQCgAKYAq4C3gL4AwQDHgMuA1YDcgOWA74D7gQmBFoEbASSBKQEwgTcBPIFCnicZVYNUFTXFb7nPti3LD+y7C6ICOzuY3cBcV14+wMmoBHFRpMYK/4EbRCUyP9/wAiWCGpo2cE4JqnSGaKOUko0EzfPjpmxAxLT2sYaa60ZM5mMTTN0TG1TjUlN4l567ttF08nuzC7vcd453/nOd767JJLgC+7Ss0QgGhJFYsgsQnL1Fr1gsBiS9GCJBr0B7n47xk5cGGODUDp2YYyeDS6FATLNrk4DC/6VTEMOo2SaUOKcvkOr6QQRiZ6QBHOiKd6sdyfkeT1uu1VjMp4B+8+Dv7tV6XJVuujEb06xQ7DtFKuv7uretq27iwDpQCz3aYBo8Vsv6UWPzyvDfeXKG8t+RAPBp+DrxiOVDoxbSAh9hk6SOYTYZJPF4ysCLCFZNbNAwr/lvESTUSPCGha8eX3VI1k2R1YkKBC976fb+5Zv8fufurhyg8uRLXt1urYdDRWFbeWY04LYyxG7A2vzx832BSAnpWEyhL8AwjX+rwRcPHCQ3X8tGhSq9WQ7fW0pKS45c4VDwGI6f8/2HqhL3bW1s6NGp3O4nRnrI6GdRiywWR15dp2ufGfNqp3ImR17acWedZx5m2SSPBYPyHrZ4sFStLVUYWfBfb6U3UuOeW5oaGgLnGbtl+bH70eYpEDFHCBpeKH2LFkfouaEiJLBYrKIPi901XQdae3pR6wQkZ3hkuX5i2ePyHCRXUickwPXdja3922t1+kyMgsrC4tg2P8LZzKXBiVerFGFvMwm1u9V8bi9SEE6SA5exeel6pBxAkbY3dxytG3Qf/RnLT0xyIyxsEo0OxPXuXJz7G641F3+Qv9o4K3zNeU63dLLRRls9NF58sL8SqL2gwVrsR8NXphAAouH1rKJ98DFjtHA1mCA2v0YJxB5+jbdgpgMJJ1kY2wacFRmBOXjyDhIGxdcojo8u5AXwoY34EbBiqEX2ecrCypfurOHTadl2syW7MysZ/PmZ3ryoNGwdkld9V8eW2u0Nmyoq9tQN2a32OyODKuNFazLycvNnufknOQiJ5t/wAlnHiv6xDBBBj6DUNWSQf/hgfaeKOQjrpjzsRJJ6rS7c5EWOjEaOPXuDB+cHzaaX7mQ08JrReDHFeRERIWgPnCiskESRBmufrhw/JuPvzl/fPGLb7/N14MariI3T2P8PoyPx+2Y0TIisugteUmcJ5sJIXrdODeDqmiHfR7gLRrf07lKKmb/ghSPVPos27c62ZDvMyYXznFkpsWaN1WYoTOjr6wmKoIGInQVy7YM7Ba0jVqBbaMOs8VO4RWcH9fKeeRlrspKWB3hOSwCWYyDEDMwMPg635rEpuLStcXu4miqQMyJPft/O0kn9qAKG1rqdzQVFeh0L/S+8+uT46oOeV9/xr5iSPLMxMNtCQ/60Mt5cLL36PEeycO+g0hP7LI1Py5Jys7Pz6Zvzjp26Jen4xB98GNN88ayKg1lz3HN8bwVmDca2TVhOlPoTSuCX1CRnYRF7JzfTwP+vf5+MhO/HuOjuEYxEn3KYoII8LD3FSpS+14/u4Xhaizn4xLywfcTAx3iD1YnRI5PgkPg8uvT3HWDb/zhtRlySjY+s7wmYy80s5drn8g5M3YiRE5r3Y6mxgdYLoawc7/kWGT8pBcVdktRwKiaZgy7SwNsCuaQmWcAWUClEAuGQ4Si4FUo16ehXFGAAjPxXCDDGbD87d1czCZ+CA3sAOi8VzHdB5D7Pe4iQ9zJes6acvAg1p0K1xKq8P/GED63TyMKkmB3JJo42hQQqhSakPbEO0+mx6MCkp9/XgVsfbWkuo19Ata26pJX2Sd4L0iFB/1+hvliOXZBzSKD3aOX6Wf//E6j3ACNRoELJVXs7wgxo7QCHA897B7OIQodQz2XuL173OTByfQVLB0fZ2fHIWG4rGy4jE6cGzk+OXl8hHV21jd0dDTUkwca7FHrJ6ka5BLE7ZG4CPlKqZsEE6sbG1c7i55Gpy2a/fjjsVJJiURP6lomWnSRdxDYnzRDGhgN4bosRNNziCoVGUxMEp24IDMi4TBtxsQwRnrY413nekRKz07PPDo+jniDX5epYHvi57emmqJEhDs5OdLfX88xd3bO4B1GvEncpzC/hFui7ok04wZiGti4H3hU9LQ2JvP8bG3ccqMtU4GEIuea6gG3ix19TIrdsAb7GK1/dMXijkhg39JApG7D2r4sw5PDoC1ZLoI6HyvyXIE8h1wRy4UEnhQ2SIccPk4dTuAusGTX7hglttRsW7Tm2uvN/Ye1StSSHHte067th+hEV3V5ero1xyj/qrKxucW5IGNuYYq5omJzM9aJw756VU8kIGEzeGbS3hvKDdpO7cGP+CkBZCliGcUYE9eeEa3HjK2jVPTGpETesJ6OCuIBdu2AKCig/VwLOJmd+Vmbu7s3Z+VDH9uUGtPUFJMKxzCXGev9O3Quoe7kFFyLr7jzjoyjOK9TbrP8t0hEpOpPBAQpGtQ41HhE5Fv/Wf+T2yPjmzYCXb9VNerk4D/w+yM6N/gpzQz3czm0exYHOrwgJ/lkwQBs/97r/5260uv/4PaXN2/CJlg3NcVOsiMk/Mzow99KIVSnlS//2N/3HmjZPdDCGPsC9DzWEz5Xo9Q99eC5ipZFa4Pvw1r2e2pib/r9/XjmD7AqHOP/AOs+me8AAHicpY89awJBEIaf9QuSQJpI6q2CICd3h4VImlOwEDRgIVglohs9ctzC3WGKlClS5ackf82/kLlzixQpAt4xO8+8vLMzC1zzjeL03dBxrGjz7LhGkw/HdXyOjhu01dRxkyv16rgl+pc4VeNCqruqq2Qlt987rnHJm+M6T3w6btBR2nGTW/XouCX6O3MsmgUxO/YU5FVlJBsyDnJu6cHc6kW82xe5XpjcZAezFfGBKStmjInoSsQkVZclxWMk1ZoNL2KcrmbjqBvFicls6o2S9UbUXwanTKrWosqZLGRkmVDG+5KHEv8deHIH8nsMJEK5IaQvA2xaTGy2Mzrs+Xqo/1pM5CDwBl7oh/2z37iszLm0lQ3lTuVrWJosj22qg55/7ogfcz9lUAAAeJxtzN0SgVAAAOHP6RFI/i6VwkT5CfHYPR9nXLcze7ezgj/fQWuMXXQiSEzNpOYyC0sraxtbuSI2pcrewVHt5KyJt4urm7vOw9NL7+3zA3W0B8EAAAAAAf//AAJ4nGNgZGBg4AFiMSBmYmAEQjUgZgHzGAAFQABVeJxjYGBgZACC2wr734HoGtUNDTAaAEfzBkwAAA==')format("woff");}.ff2{font-family:ff2;line-height:0.754000;font-style:normal;font-weight:normal;visibility:visible;}
-@font-face{font-family:ff3;src:url('data:application/font-woff;base64,d09GRgABAAAAABJcAA0AAAAAGjwAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAASQAAAABoAAAAc02wg70dERUYAABIkAAAAHAAAAB4AJwBIT1MvMgAAAaAAAABHAAAAVlUcF5RjbWFwAAACxAAAAOYAAAG6aWQ/8Wdhc3AAABIcAAAACAAAAAj//wADZ2x5ZgAABDQAAAw6AAAR3BkR8nhoZWFkAAABMAAAAC8AAAA2WtmkG2hoZWEAAAFgAAAAHgAAACQGfwLqaG10eAAAAegAAADbAAABCIJvDMhsb2NhAAADrAAAAIYAAACGi4iHjG1heHAAAAGAAAAAHQAAACAAiQBFbmFtZQAAEHAAAAEgAAACcEIGUhFwb3N0AAARkAAAAIkAAACupq9Vg3icY2BkAIOVTpFO8fw2Xxm4mV+A+DWqGxpg9P83/7WYW5h5gFwOBiaQKAA7cQtzAHicY2BkYGDm+a8FJDv+v/n/lbmFASiCApwAk88GbgAAeJxjYGRgYHACQlYGEGACYkYGkJgDmM8AABAUAM8AAAB4nGNgZFzFcIKBlYGBqYtpDwMDQw+EZnzAYMjIBBRlYGZmAIMGBgZmBwYECEhzTQFSCr8ZmXn+awEleRiuAfmMIDkADMkLEwB4nB2NPUvDUBSGn3OCmVTqVPwg1EWlUGJULEUIOqhE7K6DOKSjs/9AEPwzgluHIgERpJNToX8hiyI4SXyTC899zr3nvPfaD82yobapvM+d6FBUJQVbnrAtHkRPHIpdv6fjI3J/IfGxfCy64lXnCTml6mUO/FLeIw/O5WcxU38gXzeZ2K/Y9Cdu/JYoeGTNj+j6Ajt+QeZLRMpHvk5ki7SbekDGJynTqrRv1XNOgzPN6t5T9evcUPMxmRWs2oZyfU7si9B/Ce2j+rNSfmel/kdvtXijZXPa/0YGMJcAeJxjYGBgZoBgGQZGBhDYAuQxgvksDDOAtBKDApDFBCQ1GXQY9BgMGYwZTBnMGQIYwhmiGKoYnjC8U5D8zfj/P1CtAoMGWI0BVI0jQxBQTSJCzf/H/+/8v/X/5v8b/6//v/b/6v8z/0//P/n/8P+o/4EP1FkdoG4gABjZGOAKGZmABBO6AoiXQICFlYGBjYGdgYOTgYuBm4EHroaXj19AUEhYRFRMXEJSSlqGQVZOXkFRiYFBGSKvoqqmrqGppa2jq6dvYGhkbGJqZm5haWVtY4tmmR2cZU+M4/EBBxjDkaBSANhvM9gAAAAAACYAJgAmACYAPABSAGAAdgCQAKQA5AEWASoBRAGAAa4B2gHyAggCOAJSAl4CggKeAq4C1gLyAxYDQgN6A7QDxgPwBAIEIAQ4BHYEpgTOBP4FLgVUBZoFwgXgBgwGJgZEBn4GpAbEBvQHJAc+B3IHlge+B9IH8AgKCCwIRAigCLgIxgjuAAB4nI1Xe3QU5RWf+212l2ySZSf7SshjsxmySXjksbMPyGPCkk1ICITAJoGEJIQkQF5gkPASeQQor/AQilWsINgjCE0oRVGrIlTbI0erp1V6tEc8VJC2WhSl/KEe5kvvN7sLRKw15+w3k5n73cfv3vu733BqDv/gFnmVU3EaLpKL5kZyXC5v51VGu9HKgz0KeCPc+u4EHbhwgu6G6hMXTpBXZT/0c0P04hBQ+a/cEIyjhBvigOseOgUGVTTq4YyixmAVssDluTq+t3e8d9IkVfQ5mnoucO36NWaSSxk6xb0Rlk0Gk0YreAwp41DQO26ZKprJBc7DJSY7dH1oO7eUK+MiOM6rFbzi0oq8ycVFL5xjehxDN7mfcTO5KHzntJhNGiHV4XZ5ak0JCSZzQsJMZTWbEjiOcOlDN4mOnOfUTBqcBiHVYFRWiP/665s3BwYGyXnZSd6V20in/AsFGtTNQR85zY3AKy/wWrfXI0Kf9NpjNhs5LVeSpb3FTSaUG4+61ah7HMolQ9CPbBCtySA6PW6XYyy4gzdCqmYkCF4JnzN3obdkWv+C1tVRIIG2cWp5Y/1cnve3Vhb6arX4KHL1/MbucugyzClteGBRh05XEagq9U11zSguLK0s0+maOpsrC+aifQ/ajyC/5WwsMsv99oVUrWC0m+0qrwfSO3r7W5tW6kAiUTP95c2zpy5x5ntgFX05I9MDr61v61rX2qzTFVc21QRaOmC3i36ZPRpt5CCIUYiFBm2YQQC7m0TRw8VQQ5eR00lyF1nn4hjOKbh0oZyW03Fcml0rgGjEnwrepV/UTeaGAt8W02duLJdlhiDkwgysvlbcU4h7DNwozoH6WQhazVjgRaeV4ZlmFp1ejyvdIRglcONVeQXH93dU2pzvnRdTZ9XTtXvjbKvWm9Ir8iu3CcYnn06FJSk7aloiI8hpVWRN2eovZZX+71Egv6gulfqiVfQfGFMu4rYZ85ao4GYDIT0LMEVmkwVxKwJRq8d/HQYPPLiqX4+AGbrrundt7Wro5okE+r1rdx57jpxft0inmzX/RP/uY63VOt3CTX8E6W3EgcW0H2OK5uLDVREKSYnBEQ5iU+/Bp3oE91vvuBLmrljZYMnbuT2P/Cbm+BMHntej7/IW/YEN6/bGqOQXgjXJ9KaiXqziNLOdt4d+JJX64AzdDo30V6JITov0loveCsnHoTzrNUVSwPUIBOigBGfIeib2exRXdDM8tiEerI5EXnBrNUr44n3YuAXY9t2EBP+WXcfO7FnVPzKIzZI9W7vrNr4KxfTsbqmJ4XAXm7UPhHxZFvSd9RPzRcSVLJNotyTBfqUkJtAL5DR9BUruxMsdwT0qjhNR/Igk4T/43DV0E97DWxPTZQpmitU8c8/rcfP4UtPR2tihQt+0/ZOmaAC11rjttR2LW9PSDk0rMefDYMinQNCnSCxrrZn5BCLooGAO/SIP3WqfCi30EEwsvI0a9sGS4XlQB/MgKhmQGPRyX/j97bB/Au/yarQqQeVIt5hZ1AlAbkskw7Ozcle+nUgLPvuXEnvvi1Ur99B+WHGkteoFuhOfbSTr7tprQ30xHGcXIKgFHG5eJG3z6AGV1ATtqkKyYsM++iRu29G3F9qUfmQ5PY05jeKM97ADsmSs02NwpGoMsPTRgYFH9w8MCFf6+6/sIOffPPzUhQtPHX5TbjsKyUeP0iuKHmY/S7E/SqnnUDkL9xX0+plNLdNtUp90TholSpKY5NmyxUNORs0/sVAXQS8hhgMjSn1SyQg1vRTS60O9Vk5AJC1WARUpqoRw92u0ljTs/3DnE6M+pSQh2jA/dvQu6W0ppaq+fGKAPrE725rnX5GSveulza7Srj41sDKK0NVV+Wr0qV6inlKwjI9AHLMRDyvikaagwcZUsKqtYeJOF8O0iRWPOEF264M6X2Stv6iuomFZ1+a2rh1Rk2MWTSttmtXauWgjOb+kbkqlL6+wIC55XqCmq7OlfGZ5vq8kPrF6xqz2YO7sGGOdwokcCBiY4LaTOlmSyQSyXu4j60WUaUS/pig4hOoZPWHp5U3oWbCkyRSVZs2VNVoiEU3D0bkaFWJZkji6rru7Li4DXqFlY4wl1dUliXZ4KWg3Ge12BjnbLqiw6EToRP795Foxlsg6spHJYDZVmxWe4kAlREFQLgFUm8/OPHZq1nOlB04Gjj2tjDuci4yQSI/8CHmI7R2D+kcHuQV7wI0zwW4GMppqYID2wIe01uXKIZUuUT7DKTWUgT37B2JDvzLRo3RtqBLzlcxiGrQCm4xWSxKYrOlOTyE49JgUC2yJHOVpnNZweF8qGbFkwhSNT724+lgM0X1SUj19VUVh8wTP9NK6ucZx5ubCgsrGndbs3+XVC00VhWqzlOt0B22XI77jyGWcMUl3+yAblHb3eozh8YymLTBp8fq9XbVOuyQJEypnLmqsrmxZQGyPr9q+P3tiPblM/5znoRFrOto2tvdktLeEsMbYbmBscaG6ctwhS6+okBMrJVP98mhf4obyRS3lBQH9pNhVs9s37Sa2hTU7lncvW1lcVNu4Z+v6xxV/UR+BO/6GyRiViE4b8CqGjitkg4AkeJqZz7Nz7afQVz/6TC7L9pY8D3M6ZyJkyv6OnoxFLQ91tG3iwvrx7GfjzMr0M2ntStXf9RVJPx0zYs8CFKMPqJun5M3W+2LXVbdv6u/sWnG1ZIEGqtV1YOUNixeWFM1pfGTL2icebV00r6VNwYPVcQS5ya5GRFU0BwtfdLuU44/V7NA8Qrq7pYkTiWayc1SyK5/08cIkJ02Dj5z5GUZ3ntqlSw77OgaxsGEfZd1l+zsHHC9CcS847u+BAxFrF79jZGOg1j9rrgp+AKtY2tto61xxPDo6T2qoSsqNCQPXQPlhuAFXrpyZP+UsyjmFMXu6A/1R+BgLCWGDm9ig0Q+XNUpSYn59YB70JUj0Q2yOhIcBenrpt+RT+ubE/OpgbBKu+8gg8jOevo338LMRFbbHxsXF8vHxOTj1BpU7PjZODhBe2Ytn4yxup7J31PC9VsQIb9PdFoU4WsJqSGTrqJgxmSq4q+1J+cUxsU0qUW216xNJ1Z0YP8Pai1K6NDQR1QA/v4SOwMiZVAb1F+LL2Ak2MMr0OttTMnSbex33sCgUzvKaFTZFDtsEkJBqsKems4KWBzMN8XxElsqWEesmNWF7KpZfxz2YsuwNuxPNCrpWZSW31VKEvr2wLLRKyeOnF87QZ46dUTIL9qZ66QVILBzd095D/33nhvBz87MK3MVZ0+/m0TYsj8Mt/e88rlnKssgvDCYx2KspqCuSw8TEKnlgacAJ68IJa3rm1tatt7YOPtvR8WwHsR18aPXBg6sfokfWXFyz5mKImwqQm2zf56aQKz+dm+gV8uGC+7iJ+Veg9E+YS/gfa5cf4hKTnAGOcE800ZE/0BPpJImdTUDp7DCKMMIYXT5bkhwOkhSRq5m3kH5A+GZ/Bu6JR/45ovQ0q9wgXw6bwow6wzP4cmB+pM/amZNfVNRU21EdWBw1ybTGXVJUOWN2C7HVlfeIteMN1gpfyfTq2tU5c5xGs7/IHwjy0NA3HMVRZxlWl6wsGRmJZtF8AFSZ7lGOOVrw+6UF8DF93q53xGmz1NWxTpies3x5DtPjQ3+vY+NZ72HjuwOaHRh4uC4l5dXPaI6MkCI0pQVlcwkv31iYP7HKN9oNbvq3saM9vqXLQav4xb6jPkd9GmXusqELn/9p+tv+UyfZLsLTJLgakiNfodz35zP56ljFxo3Tnp2yrW/Gxq1sD7xHs3BfBnxAs+B99u0s43IW97LztlFIx49AlWj1ikBeKX/s8bKzZ8r37S+DaHrr6lWIAs3HHyv2hrLgGu7hmT3Gs0giyteQ4uK1i+mBvKToGLNjQlzUX0p/fQINv7+wSiWS3MJEkqY4DcreQRI1/FwAg7QNKulbsIE+53TmwHGnSOtZ/USEzgW/RD+tnIfzYabCIwiLQbzn3viTzwwX9BaLfqTF0oW/kXjv+fEjBJmlSOlD0niVT/6/YwXBfuKQ89j5Cr91FYC9ohY/nF7PzczImTzeg6ztr6hYckS+EewTA/yTO4QcGYHSTPZQ7YSKYvLBV9+E5uUenJdxwQ69b1pqsf1hj/QGG5gj2hrik5+PISRG/g98pEzM+Eyjf5raFdvNCzg0/wvKHCuuAAB4nKWPPUvDUBSGn9svUMHF4nwnKZSEJHQoxaUUOpR+QIdCJx16TQMlF5JQB0cHJ3+K/jX/gie3F3FwEJpwcp775j0fF7jmE8XpuaHnWdHlyXODNm+em0R8eW7RVTPPba7Us+eO6B/iVK0LOd25qpqVdL/33OCSF89NHnn33KKntOc2t+rBc0f0V5ZYNGsyUvZUlO5kJBsKjvLdEcLS6nWW7qtSr01piqPZibhixpYFE8b0JTIOrsqSEzD/6clqtl1Mxv1xdjCFzYN53YnfBq9MXWnlciH/jCyTyPhI8kjivwNP7ljegKFEIh0SBjLA5tXUFqnRSRjpkf5rMZHjOBgGSZQMzr7jxplLsdUF9U71bdiYosxsruMwOnfEN0Y1Zl54nG3MyUoCAQCA4c/x0KFApIjwXC7ZMmNYKXgZXEptz1x7ACG86ZuJj2eDZz/4r7/AznatYp84KSWQduhIRtaxE6fO5Jy7kFdQVHKp7Mq1G7dCUXK7U3XvwaOauoamlraOJ8+6evpevHrz7sOnL98GfgyNjE1Mzfz6s7JJBQfLxbwdh9E/mCoTHgAAAAAAAAH//wACeJxjYGRgYOABYjEgZmJgBEJHIGYB8xgABmkAcHicY2BgYGQAgtsK+9+B6BrVDQ0wGgBH8wZMAAA=')format("woff");}.ff3{font-family:ff3;line-height:0.994000;font-style:normal;font-weight:normal;visibility:visible;}
-@font-face{font-family:ff4;src:url('data:application/font-woff;base64,d09GRgABAAAAAARUAA0AAAAABqQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAEOAAAABoAAAAc02wg70dERUYAAAQcAAAAGwAAAB4AJwALT1MvMgAAAZwAAABBAAAAVlYiYKZjbWFwAAAB9AAAAEoAAAFKAEUK12dhc3AAAAQUAAAACAAAAAj//wADZ2x5ZgAAAkwAAAB4AAAAeD5CHIVoZWFkAAABMAAAAC0AAAA2WV2koWhoZWEAAAFgAAAAHAAAACQFAgGqaG10eAAAAeAAAAAUAAAAFAVgAGlsb2NhAAACQAAAAAwAAAAMAEwAiG1heHAAAAF8AAAAHQAAACAATAATbmFtZQAAAsQAAAEuAAACnXYRqq9wb3N0AAAD9AAAAB0AAAAs/8AAP3icY2BkAAPt+xXd8fw2Xxm4mV+A+DWqGxoQ9P8NjF+YeYBcDgYmkCgAPdELAwAAAHicY2BkYGDm+b+BgYHxCwMDmGRkQAWsAF4hA7B4nGNgZGBgYGUQAGIQYAJiRgaQmAOYzwAABMMAYAAAAHicY2Bk5GeKYGBlYGDqYtrDwMDQA6EZHzAYMjIBRRnYmRlggJEBCQSkuaYAKQUGDWae/xsYGJh5GAJgagCKmAh4AAAAAfQAAAAAAAABTQAAAM4AAAFRAGl4nGNgYGBmgGAZBkYGEHAB8hjBfBYGDSDNBqQZGZgYFBg0/v8H8sH0/8f/70DVAwEjGwOcw8gEJJgYUAEjxAoQYGEYngAA8EoJIAAAAAAAJgAmACYAJgA8AAUAAAAAAfQCvAADAAYACQAMAA8AADERIREDEyETFxEBIQsBERMB9Pqq/qzIqv6OAVSqyKoCvP1EAYsA//7U/wH+/dUA/wEs/gIA/wABAGn/sAEsAwwACQAAEzMGEBcjLgE1NOtBenpBPkQDDMX+LsVU33v+AAAAeJytj8tKw0AUhv/pTUUQQbDbWYlQEpLYRalu0kIXhbaQQqH7julgmoFJ6AvoM7hx4dKdr+Pr+CcdcCEuhCacOd+5nwPgAp8QOHxXuHUs0EXmuIFTvDpu4k6cOG6hK54ct3Eu3hx36P9ipmid0bqpqyoW8PHguIFLvDhu4hHvjlvwxb3jNq7Fs+MO/R+Yw0AigUaKLUoUtaWoFSz2fDecgbmRiU63ZSETVSi7Vxs6F5hijRnGiNGjaN5XVRnk8LAk7+gb0c7YBYvpejaOe7HOlDW5t1Q7PTIZA78yf0KTullZa8sVFdeLuFBAPaT8b4VDTcjfw4ASsU+EPseYvJwYmyoZ+YEcyj9WZSQMvYEXBVH/eOev6qqCuVVltV91H1bKFtrkMvSDo836BpHTcYwAAHicY2BiAIP/WxmMGLABViBmZGBiYGbgBgBD6wH/AAAAAAAAAf//AAJ4nGNgZGBg4AFiMSBmYmAEQhYwBvEYAAPKADMAeJxjYGBgZACC2wr734HoGtUNDTAaAEfzBkwAAA==')format("woff");}.ff4{font-family:ff4;line-height:0.860000;font-style:normal;font-weight:normal;visibility:visible;}
-.m0{transform:matrix(0.000000,0.250000,-0.250000,0.000000,0,0);-ms-transform:matrix(0.000000,0.250000,-0.250000,0.000000,0,0);-webkit-transform:matrix(0.000000,0.250000,-0.250000,0.000000,0,0);}
-.m1{transform:matrix(0.250000,0.000000,0.000000,0.250000,0,0);-ms-transform:matrix(0.250000,0.000000,0.000000,0.250000,0,0);-webkit-transform:matrix(0.250000,0.000000,0.000000,0.250000,0,0);}
-.v0{vertical-align:0.000000px;}
-.ls2{letter-spacing:0.000000px;}
-.ls1{letter-spacing:0.360000px;}
-.ls0{letter-spacing:20.680632px;}
-.sc_{text-shadow:none;}
-.sc0{text-shadow:-0.015em 0 transparent,0 0.015em transparent,0.015em 0 transparent,0 -0.015em  transparent;}
-@media screen and (-webkit-min-device-pixel-ratio:0){
-.sc_{-webkit-text-stroke:0px transparent;}
-.sc0{-webkit-text-stroke:0.015em transparent;text-shadow:none;}
-}
-.ws4{word-spacing:-7.344000px;}
-.ws1{word-spacing:-0.360000px;}
-.ws0{word-spacing:-0.279468px;}
-.ws3{word-spacing:-0.180000px;}
-.ws5{word-spacing:-0.144000px;}
-.ws2{word-spacing:0.000000px;}
-._2{margin-left:-3.492000px;}
-._0{margin-left:-1.512000px;}
-._1{width:1.292400px;}
-.fc1{color:rgb(255,255,255);}
-.fc0{color:rgb(248,218,83);}
-.fs0{font-size:27.946800px;}
-.fs1{font-size:36.000000px;}
-.y0{bottom:-0.500000px;}
-.y3f{bottom:42.959900px;}
-.y3e{bottom:53.759900px;}
-.y3d{bottom:64.559900px;}
-.y3c{bottom:75.359900px;}
-.y3b{bottom:86.159900px;}
-.y3a{bottom:96.959900px;}
-.y39{bottom:107.759900px;}
-.y38{bottom:118.559900px;}
-.y37{bottom:129.359900px;}
-.y36{bottom:140.159900px;}
-.y35{bottom:150.959900px;}
-.y34{bottom:161.759900px;}
-.y46{bottom:172.559900px;}
-.y33{bottom:183.359900px;}
-.y32{bottom:194.159900px;}
-.y31{bottom:204.959800px;}
-.y30{bottom:215.759900px;}
-.y2f{bottom:226.559900px;}
-.y2e{bottom:237.359900px;}
-.y2d{bottom:248.159900px;}
-.y2c{bottom:258.959800px;}
-.y2b{bottom:269.759900px;}
-.y45{bottom:280.559900px;}
-.y2a{bottom:291.359900px;}
-.y29{bottom:302.159900px;}
-.y28{bottom:312.959900px;}
-.y27{bottom:323.759900px;}
-.y44{bottom:334.559900px;}
-.y26{bottom:345.359900px;}
-.y25{bottom:356.159900px;}
-.y24{bottom:366.959900px;}
-.y23{bottom:377.759900px;}
-.y43{bottom:388.559900px;}
-.y22{bottom:399.359900px;}
-.y21{bottom:410.159900px;}
-.y20{bottom:420.959900px;}
-.y1f{bottom:431.759900px;}
-.y1e{bottom:442.559900px;}
-.y42{bottom:453.359900px;}
-.y1{bottom:456.569300px;}
-.y1d{bottom:464.159900px;}
-.y1c{bottom:474.959900px;}
-.y1b{bottom:485.759900px;}
-.y1a{bottom:496.559900px;}
-.y48{bottom:507.359900px;}
-.y19{bottom:518.159900px;}
-.y18{bottom:528.959800px;}
-.y17{bottom:539.759900px;}
-.y16{bottom:550.559900px;}
-.y41{bottom:561.359900px;}
-.y15{bottom:572.159900px;}
-.y14{bottom:582.959800px;}
-.y13{bottom:593.759900px;}
-.y12{bottom:604.559900px;}
-.y40{bottom:615.359900px;}
-.y11{bottom:626.159900px;}
-.y10{bottom:636.959800px;}
-.yf{bottom:647.759900px;}
-.ye{bottom:658.559900px;}
-.yd{bottom:669.359900px;}
-.yc{bottom:680.159900px;}
-.y47{bottom:690.959800px;}
-.yb{bottom:701.759900px;}
-.ya{bottom:712.559900px;}
-.y9{bottom:723.359900px;}
-.y8{bottom:734.159900px;}
-.y7{bottom:744.959800px;}
-.y6{bottom:755.759900px;}
-.y5{bottom:766.559900px;}
-.y4{bottom:777.359900px;}
-.y3{bottom:788.159900px;}
-.y2{bottom:798.959800px;}
-.h2{height:19.674547px;}
-.h3{height:25.416000px;}
-.h4{height:28.080000px;}
-.h0{height:841.890000px;}
-.h1{height:842.500000px;}
-.w0{width:595.276000px;}
-.w1{width:596.000000px;}
-.x0{left:0.000000px;}
-.x1{left:29.002700px;}
-.x2{left:60.965200px;}
-.x3{left:182.796500px;}
-.x4{left:322.785800px;}
-.x5{left:465.499100px;}
-@media print{
-.v0{vertical-align:0.000000pt;}
-.ls2{letter-spacing:0.000000pt;}
-.ls1{letter-spacing:0.480000pt;}
-.ls0{letter-spacing:27.574176pt;}
-.ws4{word-spacing:-9.792000pt;}
-.ws1{word-spacing:-0.480000pt;}
-.ws0{word-spacing:-0.372624pt;}
-.ws3{word-spacing:-0.240000pt;}
-.ws5{word-spacing:-0.192000pt;}
-.ws2{word-spacing:0.000000pt;}
-._2{margin-left:-4.656000pt;}
-._0{margin-left:-2.016000pt;}
-._1{width:1.723200pt;}
-.fs0{font-size:37.262400pt;}
-.fs1{font-size:48.000000pt;}
-.y0{bottom:-0.666667pt;}
-.y3f{bottom:57.279867pt;}
-.y3e{bottom:71.679867pt;}
-.y3d{bottom:86.079867pt;}
-.y3c{bottom:100.479867pt;}
-.y3b{bottom:114.879867pt;}
-.y3a{bottom:129.279867pt;}
-.y39{bottom:143.679867pt;}
-.y38{bottom:158.079867pt;}
-.y37{bottom:172.479867pt;}
-.y36{bottom:186.879867pt;}
-.y35{bottom:201.279867pt;}
-.y34{bottom:215.679867pt;}
-.y46{bottom:230.079867pt;}
-.y33{bottom:244.479867pt;}
-.y32{bottom:258.879867pt;}
-.y31{bottom:273.279733pt;}
-.y30{bottom:287.679867pt;}
-.y2f{bottom:302.079867pt;}
-.y2e{bottom:316.479867pt;}
-.y2d{bottom:330.879867pt;}
-.y2c{bottom:345.279733pt;}
-.y2b{bottom:359.679867pt;}
-.y45{bottom:374.079867pt;}
-.y2a{bottom:388.479867pt;}
-.y29{bottom:402.879867pt;}
-.y28{bottom:417.279867pt;}
-.y27{bottom:431.679867pt;}
-.y44{bottom:446.079867pt;}
-.y26{bottom:460.479867pt;}
-.y25{bottom:474.879867pt;}
-.y24{bottom:489.279867pt;}
-.y23{bottom:503.679867pt;}
-.y43{bottom:518.079867pt;}
-.y22{bottom:532.479867pt;}
-.y21{bottom:546.879867pt;}
-.y20{bottom:561.279867pt;}
-.y1f{bottom:575.679867pt;}
-.y1e{bottom:590.079867pt;}
-.y42{bottom:604.479867pt;}
-.y1{bottom:608.759067pt;}
-.y1d{bottom:618.879867pt;}
-.y1c{bottom:633.279867pt;}
-.y1b{bottom:647.679867pt;}
-.y1a{bottom:662.079867pt;}
-.y48{bottom:676.479867pt;}
-.y19{bottom:690.879867pt;}
-.y18{bottom:705.279733pt;}
-.y17{bottom:719.679867pt;}
-.y16{bottom:734.079867pt;}
-.y41{bottom:748.479867pt;}
-.y15{bottom:762.879867pt;}
-.y14{bottom:777.279733pt;}
-.y13{bottom:791.679867pt;}
-.y12{bottom:806.079867pt;}
-.y40{bottom:820.479867pt;}
-.y11{bottom:834.879867pt;}
-.y10{bottom:849.279733pt;}
-.yf{bottom:863.679867pt;}
-.ye{bottom:878.079867pt;}
-.yd{bottom:892.479867pt;}
-.yc{bottom:906.879867pt;}
-.y47{bottom:921.279733pt;}
-.yb{bottom:935.679867pt;}
-.ya{bottom:950.079867pt;}
-.y9{bottom:964.479867pt;}
-.y8{bottom:978.879867pt;}
-.y7{bottom:993.279733pt;}
-.y6{bottom:1007.679867pt;}
-.y5{bottom:1022.079867pt;}
-.y4{bottom:1036.479867pt;}
-.y3{bottom:1050.879867pt;}
-.y2{bottom:1065.279733pt;}
-.h2{height:26.232730pt;}
-.h3{height:33.888000pt;}
-.h4{height:37.440000pt;}
-.h0{height:1122.520000pt;}
-.h1{height:1123.333333pt;}
-.w0{width:793.701333pt;}
-.w1{width:794.666667pt;}
-.x0{left:0.000000pt;}
-.x1{left:38.670267pt;}
-.x2{left:81.286933pt;}
-.x3{left:243.728667pt;}
-.x4{left:430.381067pt;}
-.x5{left:620.665467pt;}
-}
-</style>
-<script>
-/*
- Copyright 2012 Mozilla Foundation 
- Copyright 2013 Lu Wang <coolwanglu@gmail.com>
- Apachine License Version 2.0 
-*/
-(function(){function b(a,b,e,f){var c=(a.className||"").split(/\s+/g);""===c[0]&&c.shift();var d=c.indexOf(b);0>d&&e&&c.push(b);0<=d&&f&&c.splice(d,1);a.className=c.join(" ");return 0<=d}if(!("classList"in document.createElement("div"))){var e={add:function(a){b(this.element,a,!0,!1)},contains:function(a){return b(this.element,a,!1,!1)},remove:function(a){b(this.element,a,!1,!0)},toggle:function(a){b(this.element,a,!0,!0)}};Object.defineProperty(HTMLElement.prototype,"classList",{get:function(){if(this._classList)return this._classList;
-var a=Object.create(e,{element:{value:this,writable:!1,enumerable:!0}});Object.defineProperty(this,"_classList",{value:a,writable:!1,enumerable:!1});return a},enumerable:!0})}})();
-</script>
-<script>
-(function(){/*
- pdf2htmlEX.js: Core UI functions for pdf2htmlEX 
- Copyright 2012,2013 Lu Wang <coolwanglu@gmail.com> and other contributors 
- https://github.com/pdf2htmlEX/pdf2htmlEX/blob/master/share/LICENSE 
-*/
-var pdf2htmlEX=window.pdf2htmlEX=window.pdf2htmlEX||{},CSS_CLASS_NAMES={page_frame:"pf",page_content_box:"pc",page_data:"pi",background_image:"bi",link:"l",input_radio:"ir",__dummy__:"no comma"},DEFAULT_CONFIG={container_id:"page-container",sidebar_id:"sidebar",outline_id:"outline",loading_indicator_cls:"loading-indicator",preload_pages:3,render_timeout:100,scale_step:0.9,key_handler:!0,hashchange_handler:!0,view_history_handler:!0,__dummy__:"no comma"},EPS=1E-6;
-function invert(a){var b=a[0]*a[3]-a[1]*a[2];return[a[3]/b,-a[1]/b,-a[2]/b,a[0]/b,(a[2]*a[5]-a[3]*a[4])/b,(a[1]*a[4]-a[0]*a[5])/b]}function transform(a,b){return[a[0]*b[0]+a[2]*b[1]+a[4],a[1]*b[0]+a[3]*b[1]+a[5]]}function get_page_number(a){return parseInt(a.getAttribute("data-page-no"),16)}function disable_dragstart(a){for(var b=0,c=a.length;b<c;++b)a[b].addEventListener("dragstart",function(){return!1},!1)}
-function clone_and_extend_objs(a){for(var b={},c=0,e=arguments.length;c<e;++c){var h=arguments[c],d;for(d in h)h.hasOwnProperty(d)&&(b[d]=h[d])}return b}
-function Page(a){if(a){this.shown=this.loaded=!1;this.page=a;this.num=get_page_number(a);this.original_height=a.clientHeight;this.original_width=a.clientWidth;var b=a.getElementsByClassName(CSS_CLASS_NAMES.page_content_box)[0];b&&(this.content_box=b,this.original_scale=this.cur_scale=this.original_height/b.clientHeight,this.page_data=JSON.parse(a.getElementsByClassName(CSS_CLASS_NAMES.page_data)[0].getAttribute("data-data")),this.ctm=this.page_data.ctm,this.ictm=invert(this.ctm),this.loaded=!0)}}
-Page.prototype={hide:function(){this.loaded&&this.shown&&(this.content_box.classList.remove("opened"),this.shown=!1)},show:function(){this.loaded&&!this.shown&&(this.content_box.classList.add("opened"),this.shown=!0)},rescale:function(a){this.cur_scale=0===a?this.original_scale:a;this.loaded&&(a=this.content_box.style,a.msTransform=a.webkitTransform=a.transform="scale("+this.cur_scale.toFixed(3)+")");a=this.page.style;a.height=this.original_height*this.cur_scale+"px";a.width=this.original_width*this.cur_scale+
-"px"},view_position:function(){var a=this.page,b=a.parentNode;return[b.scrollLeft-a.offsetLeft-a.clientLeft,b.scrollTop-a.offsetTop-a.clientTop]},height:function(){return this.page.clientHeight},width:function(){return this.page.clientWidth}};function Viewer(a){this.config=clone_and_extend_objs(DEFAULT_CONFIG,0<arguments.length?a:{});this.pages_loading=[];this.init_before_loading_content();var b=this;document.addEventListener("DOMContentLoaded",function(){b.init_after_loading_content()},!1)}
-Viewer.prototype={scale:1,cur_page_idx:0,first_page_idx:0,init_before_loading_content:function(){this.pre_hide_pages()},initialize_radio_button:function(){for(var a=document.getElementsByClassName(CSS_CLASS_NAMES.input_radio),b=0;b<a.length;b++)a[b].addEventListener("click",function(){this.classList.toggle("checked")})},init_after_loading_content:function(){this.sidebar=document.getElementById(this.config.sidebar_id);this.outline=document.getElementById(this.config.outline_id);this.container=document.getElementById(this.config.container_id);
-this.loading_indicator=document.getElementsByClassName(this.config.loading_indicator_cls)[0];for(var a=!0,b=this.outline.childNodes,c=0,e=b.length;c<e;++c)if("ul"===b[c].nodeName.toLowerCase()){a=!1;break}a||this.sidebar.classList.add("opened");this.find_pages();if(0!=this.pages.length){disable_dragstart(document.getElementsByClassName(CSS_CLASS_NAMES.background_image));this.config.key_handler&&this.register_key_handler();var h=this;this.config.hashchange_handler&&window.addEventListener("hashchange",
-function(a){h.navigate_to_dest(document.location.hash.substring(1))},!1);this.config.view_history_handler&&window.addEventListener("popstate",function(a){a.state&&h.navigate_to_dest(a.state)},!1);this.container.addEventListener("scroll",function(){h.update_page_idx();h.schedule_render(!0)},!1);[this.container,this.outline].forEach(function(a){a.addEventListener("click",h.link_handler.bind(h),!1)});this.initialize_radio_button();this.render()}},find_pages:function(){for(var a=[],b={},c=this.container.childNodes,
-e=0,h=c.length;e<h;++e){var d=c[e];d.nodeType===Node.ELEMENT_NODE&&d.classList.contains(CSS_CLASS_NAMES.page_frame)&&(d=new Page(d),a.push(d),b[d.num]=a.length-1)}this.pages=a;this.page_map=b},load_page:function(a,b,c){var e=this.pages;if(!(a>=e.length||(e=e[a],e.loaded||this.pages_loading[a]))){var e=e.page,h=e.getAttribute("data-page-url");if(h){this.pages_loading[a]=!0;var d=e.getElementsByClassName(this.config.loading_indicator_cls)[0];"undefined"===typeof d&&(d=this.loading_indicator.cloneNode(!0),
-d.classList.add("active"),e.appendChild(d));var f=this,g=new XMLHttpRequest;g.open("GET",h,!0);g.onload=function(){if(200===g.status||0===g.status){var b=document.createElement("div");b.innerHTML=g.responseText;for(var d=null,b=b.childNodes,e=0,h=b.length;e<h;++e){var p=b[e];if(p.nodeType===Node.ELEMENT_NODE&&p.classList.contains(CSS_CLASS_NAMES.page_frame)){d=p;break}}b=f.pages[a];f.container.replaceChild(d,b.page);b=new Page(d);f.pages[a]=b;b.hide();b.rescale(f.scale);disable_dragstart(d.getElementsByClassName(CSS_CLASS_NAMES.background_image));
-f.schedule_render(!1);c&&c(b)}delete f.pages_loading[a]};g.send(null)}void 0===b&&(b=this.config.preload_pages);0<--b&&(f=this,setTimeout(function(){f.load_page(a+1,b)},0))}},pre_hide_pages:function(){var a="@media screen{."+CSS_CLASS_NAMES.page_content_box+"{display:none;}}",b=document.createElement("style");b.styleSheet?b.styleSheet.cssText=a:b.appendChild(document.createTextNode(a));document.head.appendChild(b)},render:function(){for(var a=this.container,b=a.scrollTop,c=a.clientHeight,a=b-c,b=
-b+c+c,c=this.pages,e=0,h=c.length;e<h;++e){var d=c[e],f=d.page,g=f.offsetTop+f.clientTop,f=g+f.clientHeight;g<=b&&f>=a?d.loaded?d.show():this.load_page(e):d.hide()}},update_page_idx:function(){var a=this.pages,b=a.length;if(!(2>b)){for(var c=this.container,e=c.scrollTop,c=e+c.clientHeight,h=-1,d=b,f=d-h;1<f;){var g=h+Math.floor(f/2),f=a[g].page;f.offsetTop+f.clientTop+f.clientHeight>=e?d=g:h=g;f=d-h}this.first_page_idx=d;for(var g=h=this.cur_page_idx,k=0;d<b;++d){var f=a[d].page,l=f.offsetTop+f.clientTop,
-f=f.clientHeight;if(l>c)break;f=(Math.min(c,l+f)-Math.max(e,l))/f;if(d===h&&Math.abs(f-1)<=EPS){g=h;break}f>k&&(k=f,g=d)}this.cur_page_idx=g}},schedule_render:function(a){if(void 0!==this.render_timer){if(!a)return;clearTimeout(this.render_timer)}var b=this;this.render_timer=setTimeout(function(){delete b.render_timer;b.render()},this.config.render_timeout)},register_key_handler:function(){var a=this;window.addEventListener("DOMMouseScroll",function(b){if(b.ctrlKey){b.preventDefault();var c=a.container,
-e=c.getBoundingClientRect(),c=[b.clientX-e.left-c.clientLeft,b.clientY-e.top-c.clientTop];a.rescale(Math.pow(a.config.scale_step,b.detail),!0,c)}},!1);window.addEventListener("keydown",function(b){var c=!1,e=b.ctrlKey||b.metaKey,h=b.altKey;switch(b.keyCode){case 61:case 107:case 187:e&&(a.rescale(1/a.config.scale_step,!0),c=!0);break;case 173:case 109:case 189:e&&(a.rescale(a.config.scale_step,!0),c=!0);break;case 48:e&&(a.rescale(0,!1),c=!0);break;case 33:h?a.scroll_to(a.cur_page_idx-1):a.container.scrollTop-=
-a.container.clientHeight;c=!0;break;case 34:h?a.scroll_to(a.cur_page_idx+1):a.container.scrollTop+=a.container.clientHeight;c=!0;break;case 35:a.container.scrollTop=a.container.scrollHeight;c=!0;break;case 36:a.container.scrollTop=0,c=!0}c&&b.preventDefault()},!1)},rescale:function(a,b,c){var e=this.scale;this.scale=a=0===a?1:b?e*a:a;c||(c=[0,0]);b=this.container;c[0]+=b.scrollLeft;c[1]+=b.scrollTop;for(var h=this.pages,d=h.length,f=this.first_page_idx;f<d;++f){var g=h[f].page;if(g.offsetTop+g.clientTop>=
-c[1])break}g=f-1;0>g&&(g=0);var g=h[g].page,k=g.clientWidth,f=g.clientHeight,l=g.offsetLeft+g.clientLeft,m=c[0]-l;0>m?m=0:m>k&&(m=k);k=g.offsetTop+g.clientTop;c=c[1]-k;0>c?c=0:c>f&&(c=f);for(f=0;f<d;++f)h[f].rescale(a);b.scrollLeft+=m/e*a+g.offsetLeft+g.clientLeft-m-l;b.scrollTop+=c/e*a+g.offsetTop+g.clientTop-c-k;this.schedule_render(!0)},fit_width:function(){var a=this.cur_page_idx;this.rescale(this.container.clientWidth/this.pages[a].width(),!0);this.scroll_to(a)},fit_height:function(){var a=this.cur_page_idx;
-this.rescale(this.container.clientHeight/this.pages[a].height(),!0);this.scroll_to(a)},get_containing_page:function(a){for(;a;){if(a.nodeType===Node.ELEMENT_NODE&&a.classList.contains(CSS_CLASS_NAMES.page_frame)){a=get_page_number(a);var b=this.page_map;return a in b?this.pages[b[a]]:null}a=a.parentNode}return null},link_handler:function(a){var b=a.target,c=b.getAttribute("data-dest-detail");if(c){if(this.config.view_history_handler)try{var e=this.get_current_view_hash();window.history.replaceState(e,
-"","#"+e);window.history.pushState(c,"","#"+c)}catch(h){}this.navigate_to_dest(c,this.get_containing_page(b));a.preventDefault()}},navigate_to_dest:function(a,b){try{var c=JSON.parse(a)}catch(e){return}if(c instanceof Array){var h=c[0],d=this.page_map;if(h in d){for(var f=d[h],h=this.pages[f],d=2,g=c.length;d<g;++d){var k=c[d];if(null!==k&&"number"!==typeof k)return}for(;6>c.length;)c.push(null);var g=b||this.pages[this.cur_page_idx],d=g.view_position(),d=transform(g.ictm,[d[0],g.height()-d[1]]),
-g=this.scale,l=[0,0],m=!0,k=!1,n=this.scale;switch(c[1]){case "XYZ":l=[null===c[2]?d[0]:c[2]*n,null===c[3]?d[1]:c[3]*n];g=c[4];if(null===g||0===g)g=this.scale;k=!0;break;case "Fit":case "FitB":l=[0,0];k=!0;break;case "FitH":case "FitBH":l=[0,null===c[2]?d[1]:c[2]*n];k=!0;break;case "FitV":case "FitBV":l=[null===c[2]?d[0]:c[2]*n,0];k=!0;break;case "FitR":l=[c[2]*n,c[5]*n],m=!1,k=!0}if(k){this.rescale(g,!1);var p=this,c=function(a){l=transform(a.ctm,l);m&&(l[1]=a.height()-l[1]);p.scroll_to(f,l)};h.loaded?
-c(h):(this.load_page(f,void 0,c),this.scroll_to(f))}}}},scroll_to:function(a,b){var c=this.pages;if(!(0>a||a>=c.length)){c=c[a].view_position();void 0===b&&(b=[0,0]);var e=this.container;e.scrollLeft+=b[0]-c[0];e.scrollTop+=b[1]-c[1]}},get_current_view_hash:function(){var a=[],b=this.pages[this.cur_page_idx];a.push(b.num);a.push("XYZ");var c=b.view_position(),c=transform(b.ictm,[c[0],b.height()-c[1]]);a.push(c[0]/this.scale);a.push(c[1]/this.scale);a.push(this.scale);return JSON.stringify(a)}};
-pdf2htmlEX.Viewer=Viewer;})();
-</script>
-<script>
-try{
-pdf2htmlEX.defaultViewer = new pdf2htmlEX.Viewer({});
-}catch(e){}
-</script>
-<title></title>
-</head>
-<body>
-<div id="sidebar">
-<div id="outline">
-</div>
-</div>
-<div id="page-container">
-<div id="pf1" class="pf w0 h0" data-page-no="1"><div class="pc pc1 w0 h0"><img class="bi x0 y0 w1 h1" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABKgAAAaVCAIAAACQxGAoAAAACXBIWXMAABYlAAAWJQFJUiTwAAAgAElEQVR42uzdv0uUcRzA8Y/nKdqQeXEEQqk59OOviCAIQpoiaGloqZCgxRCpoUUIgogoEIomIQrCobWloQjKIaLM9AzJOA4Urbzj1KPhwCRCtCWfh9drOLjvPQfH9zO9eZ7nnoaezq4AAAAgpT5PFzJ2AQAAIN2EHwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAAOEHAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAAOEHAAAg/GwBAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAAOEHAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAAOEHAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAAOEHAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAADhZwsAAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAAAQfgAAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAAOEHAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAAOEHAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAAAg/WwAAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAAAQfgAAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAAAQfgAAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAAAQfgAAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAACD8AAAAEH7bTKNuBQAASHH4NWbi8b1DRggAAJDa8Dt+JHdg/46OPc2mCAAAsIFs4n5xe1v26fDhfK6pNLccESO3D+ZzTeNTS6cufFitGSgAAMCfknfGb35h5erN6YjI55rWXs/1T6g+AACAlIRfREx+qax/W5pbXvy+YpYAAAApCb/GTNy53rN+JZ9rGrrSbZYAAAB/lbx7/JqbM33XJiPi5LHdfWc7zg9O1E8ANmbC1Z4AAABpCL9ypVauVCPi4ZPi6d78i9eLpggAALCBBD/OoVypnbn00QgBAABSG34RMVusGiEAAMDGEnCpZ3tbduDi3rW38wsr9cX1xxRmKrt2ZtcvDt2dqR8JAAAg/La71pbMiaO5iBifWuq7NjlbrN4Y6K6vrOkfKgyPfDvdmx/s21dfufXg6/yC+QIAACTnz11Kc8vn+ic2OIm3WouR0VJErLUfAAAAkaB7/C5fn9zMpZsjo6XxqSVzBQAASFj4jU8tjb3/ucmD60/5AwAAIEnhd/9RcfMHzxarL996uB8AAECiwu9Tobyl49+8+2G0AAAAdQn4c5dypVau1Lb0lVdji1v9CgAAgPD7b/7hcXybvyEQAAAg9TK2AAAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAACD8AAAAEH4AAAAkQjZBv7W1JdPelo2Iwkzl2fO5Pz7t2NMcEcVSdbVmrAAAAL819HR22QUAAIC0+jxdcKknAABAygk/AAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAED42QIAAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAAOEHAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAAOEHAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAAOEHAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAAOEHAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAMLPFgAAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAACEHwAAAMIP+NXevcdWVR8AHD/tvX1cCn1cWluoUC61CIKVInPosgndmAwhyiTB+IKwjRkwDjTqitHFmq0RkrExp2jCEieWmZkZZpjODjLiNgMbw+iYc4j1MSGKlhZEUAvuj6OHS1WGjEe59/MJf/Te3vP4/Q5N+s15FAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAAwg8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAAAA4QcAAIDwAwAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAABA+AEAAAg/AAAAhB8AAADCDwAAAOEHAACA8AMAAED4AQAAIPwAAACEHwAAAMIPAAAA4QcAAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAADhBwAAgPADAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAADCDwAAQPiZAgAAAOEHAACA8AMAAED4AQAAIPwAAAAQfgAAAAg/AAAAhB8AAIDwAwAAQPgBAAAg/AAAABB+AAAACD8AAACEHwAAAMIPAABA+AEAACD8AAAAEH4AAAAIPwAAAIQfAAAAwg8AAADhBwAAgPADAAAQfgAAAAg/AAAAhB8AAADCDwAA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"/><div class="t m0 x1 h2 y1 ff1 fs0 fc0 sc0 ls0 ws0">DRINKS MENU</div><div class="t m1 x2 h3 y2 ff2 fs1 fc0 sc0 ls1 ws1">WHISKEY</div><div class="t m1 x2 h4 y3 ff3 fs1 fc1 sc0 ls2 ws2">Jameson <span class="ff2 fc0">40</span></div><div class="t m1 x2 h4 y4 ff3 fs1 fc1 sc0 ls2 ws2">Jameson selects. <span class="ff2 fc0">45</span></div><div class="t m1 x2 h4 y5 ff3 fs1 fc1 sc0 ls2 ws2">Jameson casemate <span class="ff2 fc0">40</span></div><div class="t m1 x2 h4 y6 ff3 fs1 fc1 sc0 ls2 ws2">John walker black <span class="ff2 fc0">48</span></div><div class="t m1 x2 h4 y7 ff3 fs1 fc1 sc0 ls2 ws2">John walker blue <span class="ff2 fc0">255</span></div><div class="t m1 x2 h4 y8 ff3 fs1 fc1 sc0 ls2 ws2">Glenﬁddich 15yrs <span class="ff2 fc0">80</span></div><div class="t m1 x2 h4 y9 ff3 fs1 fc1 sc0 ls2 ws2">Chivas Regal <span class="ff2 fc0">60</span></div><div class="t m1 x2 h4 ya ff3 fs1 fc1 sc0 ls2 ws2">Ballantine’s <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 yb ff3 fs1 fc1 sc0 ls2 ws2">Jack Daniels <span class="ff2 fc0">35</span></div><div class="t m1 x2 h3 yc ff2 fs1 fc0 sc0 ls1 ws1">COGNAC</div><div class="t m1 x2 h4 yd ff3 fs1 fc1 sc0 ls2 ws2">Hennessey vs <span class="ff2 fc0">65</span></div><div class="t m1 x2 h4 ye ff3 fs1 fc1 sc0 ls2 ws2">Martell vs <span class="ff2 fc0">55</span></div><div class="t m1 x2 h4 yf ff3 fs1 fc1 sc0 ls2 ws2">Couversier vs <span class="ff2 fc0">50</span></div><div class="t m1 x2 h4 y10 ff3 fs1 fc1 sc0 ls2 ws2">Hennessey vsop <span class="ff2 fc0">95</span></div><div class="t m1 x2 h4 y11 ff3 fs1 fc1 sc0 ls2 ws2">Remy Martin vsop <span class="ff2 fc0">90</span></div><div class="t m1 x2 h3 y12 ff2 fs1 fc0 sc0 ls1 ws1">RUM</div><div class="t m1 x2 h4 y13 ff3 fs1 fc1 sc0 ls2 ws2">Havana club 7yrs <span class="ff2 fc0">55</span></div><div class="t m1 x2 h4 y14 ff3 fs1 fc1 sc0 ls2 ws2">Havana club 3yrs <span class="ff2 fc0">40</span></div><div class="t m1 x2 h4 y15 ff3 fs1 fc1 sc0 ls2 ws2">Malibu. 35</div><div class="t m1 x2 h3 y16 ff2 fs1 fc0 sc0 ls1 ws1">BRAND<span class="_ _0"></span>Y</div><div class="t m1 x2 h4 y17 ff3 fs1 fc1 sc0 ls2 ws2">Richelieu 10yrs <span class="ff2 fc0">55</span></div><div class="t m1 x2 h4 y18 ff3 fs1 fc1 sc0 ls2 ws2">Kwv 10yrs <span class="ff2 fc0">40</span></div><div class="t m1 x2 h4 y19 ff3 fs1 fc1 sc0 ls2 ws2">Kwv 5yrs <span class="ff2 fc0">35</span> </div><div class="t m1 x2 h3 y1a ff2 fs1 fc0 sc0 ls1 ws1">GIN</div><div class="t m1 x2 h4 y1b ff3 fs1 fc1 sc0 ls2 ws2">Malfy Gin <span class="ff2 fc0">40</span></div><div class="t m1 x2 h4 y1c ff3 fs1 fc1 sc0 ls2 ws2">Bombay <span class="ff2 fc0">40</span></div><div class="t m1 x2 h4 y1d ff3 fs1 fc1 sc0 ls2 ws2">Gordons <span class="ff2 fc0">35</span></div><div class="t m1 x2 h3 y1e ff2 fs1 fc0 sc0 ls1 ws1">V<span class="_ _0"></span>ODKA</div><div class="t m1 x2 h4 y1f ff3 fs1 fc1 sc0 ls2 ws2">Sky <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 y20 ff3 fs1 fc1 sc0 ls2 ws2">Cîroc <span class="ff2 fc0">45</span></div><div class="t m1 x2 h4 y21 ff3 fs1 fc1 sc0 ls2 ws2">Cruz vodka <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 y22 ff3 fs1 fc1 sc0 ls2 ws2">Absolut <span class="ff2 fc0">30</span></div><div class="t m1 x2 h3 y23 ff2 fs1 fc0 sc0 ls1 ws1">LIQUEURS</div><div class="t m1 x2 h4 y24 ff3 fs1 fc1 sc0 ls2 ws2">Jägermeister <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 y25 ff3 fs1 fc1 sc0 ls2 ws2">Underberg <span class="ff2 fc0">60</span></div><div class="t m1 x2 h4 y26 ff3 fs1 fc1 sc0 ls2 ws2">Amarula <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 y27 ff2 fs1 fc0 sc0 ls1 ws1">TEQUILA<span class="ff4 fc1 ls2 ws2"> (<span class="ff3">Shooters)</span></span></div><div class="t m1 x2 h4 y28 ff3 fs1 fc1 sc0 ls2 ws2">Potency <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 y29 ff3 fs1 fc1 sc0 ls2 ws2">Springbok <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 y2a ff3 fs1 fc1 sc0 ls2 ws2">Dimple <span class="ff2 fc0">45</span> </div><div class="t m1 x2 h3 y2b ff2 fs1 fc0 sc0 ls1 ws1">BEERS</div><div class="t m1 x2 h4 y2c ff3 fs1 fc1 sc0 ls2 ws2">Windhoek draught <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 y2d ff3 fs1 fc1 sc0 ls2 ws2">Heineken <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 y2e ff3 fs1 fc1 sc0 ls2 ws2">Black l<span class="_ _1"></span>abel <span class="ff2 fc0">30</span></div><div class="t m1 x2 h4 y2f ff3 fs1 fc1 sc0 ls2 ws2">Castle lite <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 y30 ff3 fs1 fc1 sc0 ls2 ws2">Windhoek lager <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 y31 ff3 fs1 fc1 sc0 ls2 ws2">T<span class="_ _0"></span>afel lager <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 y32 ff3 fs1 fc1 sc0 ls2 ws2">Windhoek nonalcoholic <span class="ff2 fc0">30</span></div><div class="t m1 x2 h4 y33 ff3 fs1 fc1 sc0 ls2 ws2">Clausterhaler <span class="ff2 fc0">35</span></div><div class="t m1 x2 h3 y34 ff2 fs1 fc0 sc0 ls1 ws1">CIDERS</div><div class="t m1 x2 h4 y35 ff3 fs1 fc1 sc0 ls2 ws2">Hunters’ gold <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 y36 ff3 fs1 fc1 sc0 ls2 ws2">Brutal fruit <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 y37 ff3 fs1 fc1 sc0 ls2 ws2">Savanna dry <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 y38 ff3 fs1 fc1 sc0 ls2 ws2">Belgravia <span class="ff2 fc0">40</span></div><div class="t m1 x2 h4 y39 ff3 fs1 fc1 sc0 ls2 ws2">Bernini <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 y3a ff3 fs1 fc1 sc0 ls2 ws2">Soft drinks all <span class="ff2 fc0">30</span></div><div class="t m1 x2 h4 y3b ff3 fs1 fc1 sc0 ls2 ws2">Mixers <span class="ff2 fc0">28</span></div><div class="t m1 x2 h4 y3c ff3 fs1 fc1 sc0 ls2 ws2">Red bull <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 y3d ff3 fs1 fc1 sc0 ls2 ws2">Cordials <span class="ff2 fc0">35</span></div><div class="t m1 x2 h4 y3e ff3 fs1 fc1 sc0 ls2 ws2">Juice <span class="ff2 fc0">30</span></div><div class="t m1 x2 h4 y3f ff3 fs1 fc1 sc0 ls2 ws2">Iced tea <span class="ff2 fc0">45</span></div><div class="t m1 x3 h4 y2 ff2 fs1 fc0 sc0 ls1 ws3">RED WINES<span class="ff3 fc1 ls2 ws2"> (Per glass)</span></div><div class="t m1 x3 h4 y4 ff3 fs1 fc1 sc0 ls2 ws2">Capuppino <span class="ff2 fc0">85</span></div><div class="t m1 x3 h4 y5 ff3 fs1 fc1 sc0 ls2 ws2">Man, cabernet sauvignon <span class="ff2 fc0">85</span></div><div class="t m1 x3 h4 y7 ff3 fs1 fc1 sc0 ls2 ws2">Cabernet Sauvignon</div><div class="t m1 x3 h4 y8 ff3 fs1 fc1 sc0 ls2 ws2">Rusternberg cab sav <span class="ff2 fc0">300</span></div><div class="t m1 x3 h4 y9 ff3 fs1 fc1 sc0 ls2 ws2">Peter falke cab sav <span class="ff2 fc0">370</span></div><div class="t m1 x3 h4 ya ff3 fs1 fc1 sc0 ls2 ws2">Meer lust <span class="ff2 fc0">800</span></div><div class="t m1 x3 h4 yb ff3 fs1 fc1 sc0 ls2 ws2">Ridge back cab sav <span class="ff2 fc0">400</span></div><div class="t m1 x3 h3 yc ff2 fs1 fc0 sc0 ls1 ws1">SHIRAZ</div><div class="t m1 x3 h4 yd ff3 fs1 fc1 sc0 ls2 ws2">Man shiraz <span class="ff2 fc0">250</span></div><div class="t m1 x3 h4 ye ff3 fs1 fc1 sc0 ls2 ws2">Klein Jakkals Syrah <span class="ff2 fc0">350</span></div><div class="t m1 x3 h4 yf ff3 fs1 fc1 sc0 ls2 ws2">Saxenburg shiraz <span class="ff2 fc0">400</span></div><div class="t m1 x3 h3 y11 ff2 fs1 fc0 sc0 ls1 ws1">MERL<span class="_ _0"></span>O<span class="_ _0"></span>T</div><div class="t m1 x3 h4 y40 ff3 fs1 fc1 sc0 ls2 ws2">Neil Joubert Merlot <span class="ff2 fc0">255</span></div><div class="t m1 x3 h4 y12 ff3 fs1 fc1 sc0 ls2 ws2">Rusternberg Merlot <span class="ff2 fc0">400</span></div><div class="t m1 x3 h4 y13 ff3 fs1 fc1 sc0 ls2 ws2">Kanu Merlot <span class="ff2 fc0">310</span></div><div class="t m1 x3 h4 y14 ff3 fs1 fc1 sc0 ls2 ws2">Delihem Merlot <span class="ff2 fc0">350</span></div><div class="t m1 x3 h4 y15 ff3 fs1 fc1 sc0 ls2 ws2">Rust end Ver<span class="_ _0"></span>de <span class="ff2 fc0">700</span></div><div class="t m1 x3 h4 y41 ff3 fs1 fc1 sc0 ls2 ws2">De Grendel <span class="ff2 fc0">380</span></div><div class="t m1 x3 h3 y17 ff2 fs1 fc0 sc0 ls1 ws1">PINO<span class="_ _0"></span>T<span class="_ _0"></span>A<span class="_ _0"></span>GE</div><div class="t m1 x3 h4 y18 ff3 fs1 fc1 sc0 ls2 ws2">Diemersdal pinotage <span class="ff2 fc0">285</span></div><div class="t m1 x3 h4 y19 ff3 fs1 fc1 sc0 ls2 ws2">Hoopenburg pinotage <span class="ff2 fc0">320</span></div><div class="t m1 x3 h3 y1a ff2 fs1 fc0 sc0 ls1 ws3">PINO<span class="_ _0"></span>T NOIR</div><div class="t m1 x3 h4 y1b ff3 fs1 fc1 sc0 ls2 ws2">Kara T<span class="_ _0"></span>ara <span class="ff2 fc0">400</span></div><div class="t m1 x3 h4 y1c ff3 fs1 fc1 sc0 ls2 ws2">Chamonix Felda spar <span class="ff2 fc0">320</span></div><div class="t m1 x3 h3 y42 ff2 fs1 fc0 sc0 ls1 ws1">BLENDS</div><div class="t m1 x3 h4 y1e ff3 fs1 fc1 sc0 ls2 ws2">Peter falke ruby blend <span class="ff2 fc0">410</span></div><div class="t m1 x3 h4 y1f ff3 fs1 fc1 sc0 ls2 ws2">Chocolate block <span class="ff2 fc0">500</span></div><div class="t m1 x3 h4 y20 ff3 fs1 fc1 sc0 ls2 ws2">Optima <span class="ff2 fc0">500</span></div><div class="t m1 x3 h4 y21 ff3 fs1 fc1 sc0 ls2 ws2">Kanokop kadette <span class="ff2 fc0">340</span></div><div class="t m1 x3 h3 y43 ff2 fs1 fc0 sc0 ls1 ws3">SWEET RED</div><div class="t m1 x3 h4 y23 ff3 fs1 fc1 sc0 ls2 ws2">BONNIEV<span class="_ _0"></span>ALE</div><div class="t m1 x3 h4 y24 ff3 fs1 fc1 sc0 ls2 ws2">Sweet shiraz <span class="ff2 fc0">350</span> </div><div class="t m1 x3 h4 y26 ff2 fs1 fc0 sc0 ls1 ws3">WHITE WINES<span class="ff3 fc1 ls2 ws2"> (Per glass)</span></div><div class="t m1 x3 h4 y44 ff3 fs1 fc1 sc0 ls2 ws2"> </div><div class="t m1 x3 h4 y27 ff3 fs1 fc1 sc0 ls2 ws2">Sutherland chardonnay <span class="ff2 fc0">55</span> </div><div class="t m1 x3 h4 y28 ff3 fs1 fc1 sc0 ls2 ws2">Man Sauvignon blanc <span class="ff2 fc0">60</span></div><div class="t m1 x3 h4 y29 ff3 fs1 fc1 sc0 ls2 ws2">Fleur du cap natural light <span class="ff2 fc0">50</span></div><div class="t m1 x3 h3 y45 ff2 fs1 fc0 sc0 ls1 ws3">SA<span class="_ _0"></span>UVIGNON BLANC</div><div class="t m1 x3 h4 y2b ff3 fs1 fc1 sc0 ls2 ws2">Neil Joubert <span class="ff2 fc0">290</span></div><div class="t m1 x3 h4 y2c ff3 fs1 fc1 sc0 ls2 ws2">Delhiem <span class="ff2 fc0">335</span></div><div class="t m1 x3 h4 y2d ff3 fs1 fc1 sc0 ls2 ws2">Stellenbosch <span class="ff2 fc0">330</span></div><div class="t m1 x3 h4 y2e ff3 fs1 fc1 sc0 ls2 ws3">Cederburg Ghost Coner <span class="ff2 fc0 ws2">450</span><span class="ws4">   </span></div><div class="t m1 x3 h4 y2f ff3 fs1 fc1 sc0 ls2 ws2">De Grendel <span class="ff2 fc0">250</span></div><div class="t m1 x3 h4 y31 ff2 fs1 fc0 sc0 ls1 ws1">CHARDONNA<span class="_ _2"></span>Y  <span class="ff3 fc1 ls2 ws5">                       </span></div><div class="t m1 x3 h4 y32 ff3 fs1 fc1 sc0 ls2 ws2">DE Grendel <span class="ff2 fc0">500</span></div><div class="t m1 x3 h4 y33 ff3 fs1 fc1 sc0 ls2 ws2">Sutherland chardonnay <span class="ff2 fc0">300</span></div><div class="t m1 x3 h4 y46 ff3 fs1 fc1 sc0 ls2 ws2">Groot Constantia <span class="ff2 fc0">550</span></div><div class="t m1 x3 h4 y34 ff3 fs1 fc1 sc0 ls2 ws2">Boland reserve <span class="ff2 fc0">320</span></div><div class="t m1 x3 h4 y36 ff2 fs1 fc0 sc0 ls1 ws1">CHENIN<span class="ff3 fc1 ls2 ws2"> </span></div><div class="t m1 x3 h4 y37 ff3 fs1 fc1 sc0 ls2 ws2">Man Chenin <span class="ff2 fc0">290</span></div><div class="t m1 x3 h4 y38 ff3 fs1 fc1 sc0 ls2 ws2">Fleur du cap <span class="ff2 fc0">280</span></div><div class="t m1 x3 h4 y39 ff3 fs1 fc1 sc0 ls2 ws2">Babylonstoren chenin <span class="ff2 fc0">320</span> </div><div class="t m1 x3 h4 y3a ff3 fs1 fc1 sc0 ls2 ws2">Cederburg <span class="ff2 fc0">330</span></div><div class="t m1 x3 h3 y3c ff2 fs1 fc0 sc0 ls1 ws3">SEMI SWEET </div><div class="t m1 x3 h4 y3d ff3 fs1 fc1 sc0 ls2 ws2">Cederburg Bukettraube <span class="ff2 fc0">330</span></div><div class="t m1 x4 h3 y2 ff2 fs1 fc0 sc0 ls1 ws1">ROSE</div><div class="t m1 x4 h4 y3 ff3 fs1 fc1 sc0 ls2 ws2">Boschendal  blanc de noir <span class="ff2 fc0">290</span></div><div class="t m1 x4 h4 y4 ff3 fs1 fc1 sc0 ls2 ws2">Eikendal Rose <span class="ff2 fc0">330</span></div><div class="t m1 x4 h3 y7 ff2 fs1 fc0 sc0 ls1 ws1">SWEET  WINE </div><div class="t m1 x4 h4 y8 ff3 fs1 fc1 sc0 ls2 ws2">Jam jar white <span class="ff2 fc0">250</span> </div><div class="t m1 x4 h4 y9 ff3 fs1 fc1 sc0 ls2 ws2">Zandviet Muscato <span class="ff2 fc0">300</span></div><div class="t m1 x4 h4 ya ff3 fs1 fc1 sc0 ls2 ws2">Jackkasvlie Pink Moscato <span class="ff2 fc0">280</span> </div><div class="t m1 x4 h3 y47 ff2 fs1 fc0 sc0 ls1 ws1">SP<span class="_ _0"></span>ARKLING  WINES </div><div class="t m1 x4 h4 yc ff3 fs1 fc1 sc0 ls2 ws2">Graham beck nectar  <span class="ff2 fc0">415</span></div><div class="t m1 x4 h4 yd ff3 fs1 fc1 sc0 ls2 ws2">Graham beck Rose  nectar <span class="ff2 fc0">430</span></div><div class="t m1 x4 h4 ye ff3 fs1 fc1 sc0 ls2 ws2">Graham beck brut Rose <span class="ff2 fc0">430</span></div><div class="t m1 x4 h4 yf ff3 fs1 fc1 sc0 ls2 ws2">Simonsig <span class="ff2 fc0">400</span> </div><div class="t m1 x4 h3 y11 ff2 fs1 fc0 sc0 ls1 ws1">CHAMP<span class="_ _0"></span>A<span class="_ _0"></span>GNE </div><div class="t m1 x4 h4 y40 ff3 fs1 fc1 sc0 ls2 ws2">Veuve brut <span class="ff2 fc0">2000</span></div><div class="t m1 x4 h4 y12 ff3 fs1 fc1 sc0 ls2 ws2">Veuve rich <span class="ff2 fc0">2800</span></div><div class="t m1 x4 h4 y13 ff3 fs1 fc1 sc0 ls2 ws2">Moet nectar <span class="ff2 fc0">2600</span></div><div class="t m1 x4 h4 y14 ff3 fs1 fc1 sc0 ls2 ws2">Moet brut <span class="ff2 fc0">2200</span></div><div class="t m1 x4 h4 y15 ff3 fs1 fc1 sc0 ls2 ws2">Moet ice <span class="ff2 fc0">2500</span></div><div class="t m1 x4 h3 y16 ff2 fs1 fc0 sc0 ls1 ws3">DESERT WINES </div><div class="t m1 x4 h4 y17 ff3 fs1 fc1 sc0 ls2 ws2">Kana Noble Late Harvest <span class="ff2 fc0">280</span></div><div class="t m1 x4 h4 y18 ff3 fs1 fc1 sc0 ls2 ws2">Bon Courage Cap Vintage <span class="ff2 fc0">320</span></div><div class="t m1 x4 h3 y48 ff2 fs1 fc0 sc0 ls1 ws3">CLASSIC COCKT<span class="_ _2"></span>AIL </div><div class="t m1 x4 h4 y1b ff3 fs1 fc1 sc0 ls2 ws2">Golden Night <span class="ff2 fc0">90</span></div><div class="t m1 x4 h4 y1c ff3 fs1 fc1 sc0 ls2 ws2">T<span class="_ _0"></span>equila T<span class="_ _0"></span>riple sec </div><div class="t m1 x4 h4 y42 ff3 fs1 fc1 sc0 ls2 ws2">Cosmopolitan <span class="ff2 fc0">85</span></div><div class="t m1 x4 h4 y1e ff3 fs1 fc1 sc0 ls2 ws2">Vodka, Cranberry juice</div><div class="t m1 x4 h4 y1f ff3 fs1 fc1 sc0 ls2 ws2">T<span class="_ _0"></span>riple sec </div><div class="t m1 x4 h4 y21 ff3 fs1 fc1 sc0 ls2 ws2">Mojito <span class="ff2 fc0">90</span></div><div class="t m1 x4 h4 y22 ff3 fs1 fc1 sc0 ls2 ws2">Rum, Mint </div><div class="t m1 x4 h4 y23 ff3 fs1 fc1 sc0 ls2 ws2">Long Island <span class="ff2 fc0">120</span></div><div class="t m1 x4 h4 y24 ff3 fs1 fc1 sc0 ls2 ws2">Vodka, Gin, Rum</div><div class="t m1 x4 h4 y25 ff3 fs1 fc1 sc0 ls2 ws2">T<span class="_ _0"></span>equila triple sec</div><div class="t m1 x4 h4 y44 ff3 fs1 fc1 sc0 ls2 ws2">Moscow Mule <span class="ff2 fc0">85</span></div><div class="t m1 x4 h4 y27 ff3 fs1 fc1 sc0 ls2 ws2">Vodka, St<span class="_ _0"></span>oney, Lime </div><div class="t m1 x4 h4 y29 ff3 fs1 fc1 sc0 ls2 ws2">Caipirinha <span class="ff2 fc0">70</span></div><div class="t m1 x4 h4 y2a ff3 fs1 fc1 sc0 ls2 ws2">Fresh lime, Cachaca </div><div class="t m1 x4 h4 y2b ff3 fs1 fc1 sc0 ls2 ws2">Gin Basil <span class="ff2 fc0">70</span></div><div class="t m1 x4 h4 y2c ff3 fs1 fc1 sc0 ls2 ws2">Basil, Gin, Lime</div><div class="t m1 x4 h3 y2e ff2 fs1 fc0 sc0 ls1 ws1">SOURS</div><div class="t m1 x4 h4 y30 ff3 fs1 fc1 sc0 ls2 ws2">Cranberry Gin <span class="ff2 fc0">70</span></div><div class="t m1 x4 h4 y31 ff3 fs1 fc1 sc0 ls2 ws2">Egg white, Cranberry, Gin</div><div class="t m1 x4 h4 y32 ff3 fs1 fc1 sc0 ls2 ws2">T<span class="_ _0"></span>riple sec </div><div class="t m1 x4 h4 y46 ff3 fs1 fc1 sc0 ls2 ws2">Kiwi Vodka <span class="ff2 fc0">75</span></div><div class="t m1 x4 h4 y34 ff3 fs1 fc1 sc0 ls2 ws2">Egg white, Kiwi, Vodk<span class="_ _0"></span>a</div><div class="t m1 x4 h4 y35 ff3 fs1 fc1 sc0 ls2 ws2">T<span class="_ _0"></span>riple sec </div><div class="t m1 x4 h4 y37 ff3 fs1 fc1 sc0 ls2 ws2">Amaretto <span class="ff2 fc0">75</span></div><div class="t m1 x4 h4 y38 ff3 fs1 fc1 sc0 ls2 ws2">Egg white, Amaretto</div><div class="t m1 x4 h4 y39 ff3 fs1 fc1 sc0 ls2 ws2">T<span class="_ _0"></span>riple sec </div><div class="t m1 x4 h4 y3b ff3 fs1 fc1 sc0 ls2 ws2">Whiskey <span class="ff2 fc0">75</span></div><div class="t m1 x4 h4 y3c ff3 fs1 fc1 sc0 ls2 ws2">Egg white, Whiske<span class="_ _0"></span>y</div><div class="t m1 x4 h4 y3d ff3 fs1 fc1 sc0 ls2 ws2">Ttriple sec</div><div class="t m1 x5 h3 y2 ff2 fs1 fc0 sc0 ls1 ws3">T<span class="_ _2"></span>ASTE CLASSIC </div><div class="t m1 x5 h4 y4 ff3 fs1 fc1 sc0 ls2 ws2">T<span class="_ _0"></span>aste <span class="ff2 fc0">95</span> </div><div class="t m1 x5 h4 y5 ff3 fs1 fc1 sc0 ls2 ws2">Jager fresh <span class="ff2 fc0">95</span> </div><div class="t m1 x5 h3 y7 ff2 fs1 fc0 sc0 ls1 ws3">F<span class="_ _0"></span>AUX COCKT<span class="_ _2"></span>AILS </div><div class="t m1 x5 h4 y9 ff3 fs1 fc1 sc0 ls2 ws2">Cordial Refresh <span class="ff2 fc0">65</span></div><div class="t m1 x5 h4 ya ff3 fs1 fc1 sc0 ls2 ws2">Passionfruit, Lime,</div><div class="t m1 x5 h4 yb ff3 fs1 fc1 sc0 ls2 ws2">Cola, Dry lemon</div><div class="t m1 x5 h4 yc ff3 fs1 fc1 sc0 ls2 ws2">Kiwi Crush <span class="ff2 fc0">75</span></div><div class="t m1 x5 h4 yd ff3 fs1 fc1 sc0 ls2 ws2">Kiwi syrup, Lemon juice,</div><div class="t m1 x5 h4 ye ff3 fs1 fc1 sc0 ls2 ws2">Lime, Sprite</div><div class="t m1 x5 h4 y10 ff3 fs1 fc1 sc0 ls2 ws2">Hurricane <span class="ff2 fc0">75</span></div><div class="t m1 x5 h4 y11 ff3 fs1 fc1 sc0 ls2 ws2">Grenadine, Orange juice </div><div class="t m1 x5 h4 y12 ff3 fs1 fc1 sc0 ls2 ws2">Blue Summer Berry <span class="ff2 fc0">75</span></div><div class="t m1 x5 h4 y13 ff3 fs1 fc1 sc0 ls2 ws2">Blended mixed berries</div><div class="t m1 x5 h4 y15 ff3 fs1 fc1 sc0 ls2 ws2">Cucumber Spritz <span class="ff2 fc0">75</span></div><div class="t m1 x5 h4 y41 ff3 fs1 fc1 sc0 ls2 ws2">Cucumber syrup</div></div><div class="pi" data-data='{"ctm":[1.000000,0.000000,0.000000,1.000000,0.000000,0.000000]}'></div></div>
-</div>
-<div class="loading-indicator">
-<img alt="" src="data:image/png;base64,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"/>
-</div>
-</body>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Tooplate's Little Fashion</title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/slick.css"/>
+
+        <link href="css/tooplate-little-fashion.css" rel="stylesheet">
+<!--
+
+Tooplate 2127 Little Fashion
+
+https://www.tooplate.com/view/2127-little-fashion
+
+-->
+    </head>
+    
+    <body>
+
+        <section class="preloader">
+            <div class="spinner">
+                <span class="sk-inner-circle"></span>
+            </div>
+        </section>
+    
+        <main>
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="index.html">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="tastemenu.html">Taste Menu</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="chownowmenu.html">Chow Now Menu</a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+
+            <section class="slick-slideshow">   
+                <div class="slick-custom">
+                    <img src="images/slideshow/medium-shot-business-women-high-five.jpeg" class="img-fluid" alt="">
+
+                    <div class="slick-bottom">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 col-10">
+                                    <h1 class="slick-title">Cool Fashion</h1>
+
+                                    <p class="lead text-white mt-lg-3 mb-lg-5">Little fashion template comes with total 8 HTML pages provided by Tooplate website.</p>
+
+                                    <a href="about.html" class="btn custom-btn">Learn more about us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slick-custom">
+                    <img src="images/slideshow/team-meeting-renewable-energy-project.jpeg" class="img-fluid" alt="">
+
+                    <div class="slick-bottom">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 col-10">
+                                    <h1 class="slick-title">New Design</h1>
+
+                                    <p class="lead text-white mt-lg-3 mb-lg-5">Please share this Little Fashion template to your friends. Thank you for supporting us.</p>
+
+                                    <a href="product.html" class="btn custom-btn">Explore products</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slick-custom">
+                    <img src="images/slideshow/two-business-partners-working-together-office-computer.jpeg" class="img-fluid" alt="">
+
+                    <div class="slick-bottom">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 col-10">
+                                    <h1 class="slick-title">Talk to us</h1>
+
+                                    <p class="lead text-white mt-lg-3 mb-lg-5">Tooplate is one of the best HTML CSS template websites for everyone.</p>
+
+                                    <a href="contact.html" class="btn custom-btn">Work with us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- <section class="about section-padding">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 text-center">
+                            <h2 class="mb-5">Get started with <span>Little</span> Fashion</h2>
+                        </div>
+
+                        <div class="col-lg-2 col-12 mt-auto mb-auto">
+                            <ul class="nav nav-pills mb-5 mx-auto justify-content-center align-items-center" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Introduction</button>
+                                </li>
+
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="pills-youtube-tab" data-bs-toggle="pill" data-bs-target="#pills-youtube" type="button" role="tab" aria-controls="pills-youtube" aria-selected="true">How we work?</button>
+                                </li>
+
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="pills-skill-tab" data-bs-toggle="pill" data-bs-target="#pills-skill" type="button" role="tab" aria-controls="pills-skill" aria-selected="false">Capabilites</button>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-10 col-12">
+                            <div class="tab-content mt-2" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                                    <div class="row">
+                                        <div class="col-lg-7 col-12">
+                                            <img src="images/pim-chu-z6NZ76_UTDI-unsplash.jpeg" class="img-fluid" alt="">
+                                        </div>
+
+                                        <div class="col-lg-5 col-12">
+                                            <div class="d-flex flex-column h-100 ms-lg-4 mt-lg-0 mt-5">
+                                                <h4 class="mb-3">Good <span>Design</span> <br>Ideas for <span>your</span> fashion</h4>
+
+                                                <p>Little Fashion templates comes with <a href="sign-in.html">sign in</a> / <a href="sign-up.html">sign up</a> pages, product listing / product detail, about, FAQs, and contact page.</p>
+
+                                                <p>Since this HTML template is based on Boostrap 5 CSS library, you can feel free to add more components as you need.</p>
+
+                                                <div class="mt-2 mt-lg-auto">
+                                                    <a href="about.html" class="custom-link mb-2">
+                                                        Learn more about us
+                                                        <i class="bi-arrow-right ms-2"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="pills-youtube" role="tabpanel" aria-labelledby="pills-youtube-tab">
+
+                                    <div class="row">
+                                        <div class="col-lg-7 col-12">
+                                            <div class="ratio ratio-16x9">
+                                                <iframe src="https://www.youtube-nocookie.com/embed/f_7JqPDWhfw?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-5 col-12">
+                                            <div class="d-flex flex-column h-100 ms-lg-4 mt-lg-0 mt-5">
+                                                <h4 class="mb-3">Life at Studio</h4>
+
+                                                <p>Over three years in business, We’ve had the chance to work on a variety of projects, with companies</p>
+
+                                                <p>Custom work is branding, web design, UI/UX design</p>
+
+                                                <div class="mt-2 mt-lg-auto">
+                                                    <a href="contact.html" class="custom-link mb-2">
+                                                        Work with us
+                                                        <i class="bi-arrow-right ms-2"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="pills-skill" role="tabpanel" aria-labelledby="pills-skill-tab">
+                                    <div class="row">
+                                        <div class="col-lg-7 col-12">
+                                            <img src="images/cody-lannom-G95AReIh_Ko-unsplash.jpeg" class="img-fluid" alt="">
+                                        </div>
+
+                                        <div class="col-lg-5 col-12">
+                                            <div class="d-flex flex-column h-100 ms-lg-4 mt-lg-0 mt-5">
+                                                <h4 class="mb-3">What can help you?</h4>
+
+                                                <p>Over three years in business, We’ve had the chance on projects</p>
+
+                                                <div class="skill-thumb mt-3">
+
+                                                    <strong>Branding</strong>
+                                                        <span class="float-end">90%</span>
+                                                            <div class="progress">
+                                                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
+                                                            </div>
+
+                                                    <strong>Design & Stragety</strong>
+                                                        <span class="float-end">70%</span>
+                                                            <div class="progress">
+                                                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
+                                                            </div>
+
+                                                    <strong>Online Platform</strong>
+                                                        <span class="float-end">80%</span>
+                                                            <div class="progress">
+                                                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
+                                                            </div>
+
+                                                </div>
+                                                
+                                                <div class="mt-2 mt-lg-auto">
+                                                    <a href="products.html" class="custom-link mb-2">
+                                                        Explore products
+                                                        <i class="bi-arrow-right ms-2"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="front-product">
+                <div class="container-fluid p-0">
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-6 col-12">
+                            <img src="images/retail-shop-owner-mask-social-distancing-shopping.jpg" class="img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="px-5 py-5 py-lg-0">
+                                
+                                <h2 class="mb-4"><span>Retail</span> shop owners</h2>
+
+                                <p class="lead mb-4">Credits go to Unsplash and FreePik websites for images used in this Little Fashion by Tooplate.</p>
+
+                                <a href="products.html" class="custom-link">
+                                    Explore Products
+                                    <i class="bi-arrow-right ms-2"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="featured-product section-padding">
+                <div class="container">
+                    <div class="row">
+                        
+                        <div class="col-12 text-center">
+                            <h2 class="mb-5">Featured Products</h2>
+                        </div>
+
+                        <div class="col-lg-4 col-12 mb-3">
+                            <div class="product-thumb">
+                                <a href="product-detail.html">
+                                    <img src="images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg" class="img-fluid product-image" alt="">
+                                </a>
+
+                                <div class="product-top d-flex">
+                                    <span class="product-alert me-auto">New Arrival</span>
+
+                                    <a href="#" class="bi-heart-fill product-icon"></a>
+                                </div>
+
+                                <div class="product-info d-flex">
+                                    <div>
+                                        <h5 class="product-title mb-0">
+                                            <a href="product-detail.html" class="product-title-link">Tree pot</a>
+                                        </h5>
+
+                                        <p class="product-p">Original package design from house</p>
+                                    </div>
+
+                                    <small class="product-price text-muted ms-auto mt-auto mb-5">$25</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-12 mb-3">
+                            <div class="product-thumb">
+                                <a href="product-detail.html">
+                                    <img src="images/product/jordan-nix-CkCUvwMXAac-unsplash.jpeg" class="img-fluid product-image" alt="">
+                                </a>
+
+                                <div class="product-top d-flex">
+                                    <span class="product-alert">Low Price</span>
+
+                                    <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
+                                </div>
+
+                                <div class="product-info d-flex">
+                                    <div>
+                                        <h5 class="product-title mb-0">
+                                            <a href="product-detail.html" class="product-title-link">Fashion Set</a>
+                                        </h5>
+
+                                        <p class="product-p">Costume Package</p>
+                                    </div>
+
+                                    <small class="product-price text-muted ms-auto mt-auto mb-5">$35</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-12">
+                            <div class="product-thumb">
+                                <a href="product-detail.html">
+                                    <img src="images/product/nature-zen-3Dn1BZZv3m8-unsplash.jpeg" class="img-fluid product-image" alt="">
+                                </a>
+
+                                <div class="product-top d-flex">
+                                    <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
+                                </div>
+
+                                <div class="product-info d-flex">
+                                    <div>
+                                        <h5 class="product-title mb-0">
+                                            <a href="product-detail.html" class="product-title-link">Juice Drinks</a>
+                                        </h5>
+
+                                        <p class="product-p">Nature made another world</p>
+                                    </div>
+
+                                    <small class="product-price text-muted ms-auto mt-auto mb-5">$45</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 text-center">
+                            <a href="products.html" class="view-all">View All Products</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section> -->
+
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-10 me-auto mb-4">
+                        <h4 class="text-white mb-3"><a href="index.html">Little</a> Fashion</h4>
+                        <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">Copyright © 2022 <strong>Little Fashion</strong></p>
+                        <br>
+                        <p class="copyright-text">Designed by <a href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
+                    </div>
+
+                    <div class="col-lg-5 col-8">
+                        <h5 class="text-white mb-3">Sitemap</h5>
+
+                        <ul class="footer-menu d-flex flex-wrap">
+                            <li class="footer-menu-item"><a href="about.html" class="footer-menu-link">Story</a></li>
+
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Products</a></li>
+
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Privacy policy</a></li>
+
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">FAQs</a></li>
+
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-4">
+                        <h5 class="text-white mb-3">Social</h5>
+
+                        <ul class="social-icon">
+
+                            <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-skype"></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/Headroom.js"></script>
+        <script src="js/jQuery.headroom.js"></script>
+        <script src="js/slick.min.js"></script>
+        <script src="js/custom.js"></script>
+
+    </body>
 </html>
