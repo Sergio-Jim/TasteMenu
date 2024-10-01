@@ -506,6 +506,26 @@ strong {
 }
 
 /*---------------------------------------
+  OPENING SECTION
+-----------------------------------------*/
+
+.opening {
+  width: 100%; /* Full viewport width */
+  margin-top: 86PX; /* Removes any default margin */
+  padding: 0; /* Removes any default padding */
+}
+
+.opening-img {
+  width: 100%; /* Full width of parent container */
+}
+
+.full-width-img {
+  width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove any extra space */
+}
+
+/*---------------------------------------
   SLICK SLIDESHOW               
 -----------------------------------------*/
 @media (min-width: 992px) {
@@ -610,7 +630,8 @@ strong {
   background: transparent;
   border: 5px solid rgba(255, 255, 255, 0.35);
   border-radius: 100%;
-  display: block;
+  display: none;
+  /* display: block; */
   width: 30px;
   height: 30px;
   margin: 10px;
@@ -725,265 +746,6 @@ section {
 
 .featured {
   background: var(--section-bg-color);
-}
-
-/*---------------------------------------
-  ABOUT               
------------------------------------------*/
-.about .nav-pills .nav-item {
-  width: 100%;
-}
-
-.about .nav-pills .nav-link {
-  color: var(--grey-color);
-  font-size: 18px;
-  font-weight: var(--font-weight-bold);
-  border-left: 1px solid var(--grey-color);
-  border-radius: 0;
-  padding-right: 0;
-}
-
-.about .nav-pills .nav-link:hover,
-.about .nav-pills .nav-link.active, 
-.about .nav-pills .show>.nav-link {
-  background: transparent;
-  border-left-color: var(--primary-color);
-  color: var(--primary-color);
-}
-
-/*---------------------------------------
-  FAQ ACCORDION               
------------------------------------------*/
-.accordion-item {
-  background-color: transparent;
-  border-top: 0;
-  border-right: 0;
-  border-left: 0;
-}
-
-.accordion-button {
-  background-color: transparent;
-  box-shadow: none;
-}
-
-.accordion-button:not(.collapsed) {
-  background: transparent;
-  box-shadow: none;
-}
-
-button:focus:not(:focus-visible) {
-  border-color: transparent;
-  box-shadow: none;
-}
-
-.accordion-body {
-  border-top: 1px solid rgba(0,0,0,.125);
-}
-
-.accordion-button {
-  font-size: 1.5rem;
-  font-weight: var(--font-weight-normal);
-  padding-top: 1.5rem;
-  padding-right: 0;
-  padding-bottom: 1.5rem;
-  padding-left: 0;
-}
-
-.accordion-body {
-  padding: 2rem 0;
-}
-
-/*---------------------------------------
-  TEAM MEMBERS               
------------------------------------------*/
-.team {
-  background: var(--grey-color);
-}
-
-.team-thumb {
-  background: var(--white-color);
-  position: relative;
-  border-radius: .25rem;
-  padding: 42px 32px;
-}
-
-.team-info {
-  width: 100%;
-}
-
-.custom-modal-btn {
-  background: var(--grey-color);
-  color: var(--white-color);
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto 32px;
-  width: 42px;
-  height: 42px;
-}
-
-.modal-body {
-  padding: 4rem;
-}
-
-.modal-header {
-  padding-top: 7rem;
-  padding-bottom: 5rem;
-}
-
-.modal-header .btn-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 24px;
-  margin: 32px;
-}
-
-#cart-modal .modal-header .btn-close {
-  z-index: 2;
-  margin: 22px;
-}
-
-#cart-modal .modal-header {
-  border-bottom: 0;
-  padding: 0;
-}
-
-#cart-modal .modal-footer {
-  padding: 2rem 4rem;
-}
-
-/*---------------------------------------
-  SKILL - PROGRESS BAR               
------------------------------------------*/
-.skill-thumb strong {
-  display: inline-block;
-  margin-bottom: 6px;
-}
-
-.skill-thumb span {
-  color: var(--dark-color);
-  font-size: 24px;
-  font-weight: var(--font-weight-bold);
-}
-
-.skill-thumb .progress {
-  background: var(--white-color);
-  box-shadow: none;
-  border-radius: 100px;
-  height: 1px;
-  margin-bottom: 16px;
-}
-
-.skill-thumb .progress .progress-bar-primary {
-  background: var(--grey-color);
-}
-
-/*---------------------------------------
-  PRODUCT               
------------------------------------------*/
-.front-product {
-  background: var(--section-bg-color);
-}
-
-.product-thumb {
-  background: var(--white-color);
-  position: relative;
-  transition: all 0.5s ease-out;
-}
-
-.product-image {
-  transition: all 0.5s ease-out;
-}
-
-.product-thumb:hover .product-image {
-  box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
-}
-
-.product-top {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  margin: 20px;
-}
-
-.product-info {
-  padding: 30px 20px;
-}
-
-.product-description,
-.product-cart-thumb {
-  padding: 0 20px;
-}
-
-.product-icon {
-  color: var(--white-color);
-}
-
-.product-title-link {
-  color: var(--dark-color);
-}
-
-.product-additional-link {
-  display: inline-block;
-  vertical-align: top;
-  font-size: var(--product-link-font-size);
-  margin-top: 32px;
-  margin-right: 12px;
-}
-
-.product-alert {
-  background: var(--white-color);
-  color: var(--p-color);
-  font-size: var(--custom-link-font-size);
-  font-weight: var(--font-weight-bold);
-  padding: 3px 10px;
-}
-
-.product-p {
-  font-size: var(--product-link-font-size);
-}
-
-.view-all {
-  text-transform: uppercase;
-  color: var(--p-color);
-  font-size: 13px;
-  font-weight: var(--font-weight-bold);
-  border-bottom: 2px solid var(--grey-color);
-  padding-bottom: 6px;
-}
-
-/*---------------------------------------
-  CONTACT              
------------------------------------------*/
-.contact-info {
-  padding: 40px;
-}
-
-.contact-form .form-control {
-  border-color: var(--grey-color);
-  font-weight: var(--font-weight-normal);
-}
-
-.form-floating>label {
-  color: var(--grey-color);
-  font-weight: var(--font-weight-normal);
-}
-
-.contact-form button[type='submit'] {
-  background: var(--dark-color);
-  border: none;
-  border-radius: 100px;
-  color: var(--white-color);
-  font-weight: var(--font-weight-bold);
-  text-transform: uppercase;
-  padding: 16px;
-}
-
-.contact-form button[type='submit']:hover {
-  background: var(--primary-color);
 }
 
 /*---------------------------------------
