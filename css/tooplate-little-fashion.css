@@ -513,7 +513,7 @@ strong {
   width: 100%; /* Full viewport width */
   margin-top: 83PX; /* Removes any default margin */
   padding: 0; /* Removes any default padding */
-  background: url('../images/TasteRestaurant.jpg') no-repeat center center;
+  background: url('../images/TasteRestaurant.jpg') no-repeat center;
   height: 100%;
 }
 
