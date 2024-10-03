@@ -520,7 +520,7 @@ strong {
 .opening-bottom {
   background: linear-gradient(to top, var(--dark-color), transparent 90%);
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   bottom: 0;
   right: 0;
   left: 0;
