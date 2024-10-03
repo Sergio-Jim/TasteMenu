@@ -511,11 +511,11 @@ strong {
 
 .opening {
   width: 100%; /* Full viewport width */
-  margin-top: 83PX; /* Removes any default margin */
+  margin-top: 83px; /* Removes any default margin */
   padding: 0; /* Removes any default padding */
-  background-image: url('../images/TasteRestaurant.jpg');
-  background-repeat: no-repeat;
-  height: 100%;
+  background: url('../images/TasteRestaurant.jpg') no-repeat center center;
+  background-size: cover;
+  height: 100%; /* Full viewport height */
 }
 
 .opening-bottom {
@@ -547,7 +547,7 @@ strong {
 }
 
 .opening-img {
-  width: 100%; /* Full width of parent container */
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
