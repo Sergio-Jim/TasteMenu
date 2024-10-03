@@ -537,7 +537,7 @@ strong {
 }
 
 .opening-overlay {
-  background: linear-gradient(to top, #000, transparent 120%);
+  background: linear-gradient(to top, #000, transparent 100%);
   position: absolute;
   top: 0;
   right: 0;
